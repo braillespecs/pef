@@ -1,1 +1,2 @@
 * text=auto !eol
+validation/pef-2008-1.rng -text svneol=unset#application/octet-stream

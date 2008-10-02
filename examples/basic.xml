@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	PEF 1.0 Example
+	Working Draft, 26 May 2008
+	The transcribed text is a Swedish poem called "Om våren" by Nils Ferlin
+-->
+<pef version="2008-1" xmlns="http://www.daisy.org/ns/2008/pef">
+	<head>
+		<meta xmlns:dc="http://purl.org/dc/elements/1.1/">
+			<dc:title>Om våren</dc:title>
+			<dc:creator>Nils Ferlin</dc:creator>
+			<dc:description>This is an example of the Portable Embosser Format (PEF) 1.0</dc:description>
+			<dc:language>sv</dc:language>
+			<dc:date>2008-09-04</dc:date>
+			<dc:format>application/x-pef+xml</dc:format>
+			<dc:identifier>xxxxxx</dc:identifier>
+		</meta>
+	</head>
+	<body>
+		<volume cols="30" rows="29" rowgap="0" duplex="true">
+			<section>
+				<page>
+					<row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁</row>
+					<row>⠀⠠⠙⠑⠞⠀⠎⠊⠞⠞⠑⠗⠀⠑⠝⠀⠛⠥⠍⠍⠁⠀⠍⠑⠙</row>
+					<row>⠀⠃⠇⠕⠍⠍⠕⠗⠀⠌⠀⠏⠡⠀⠓⠥⠅⠀⠊⠀⠑⠝⠀⠛⠁⠞⠥⠧⠗⠡</row>
+					<row>⠀⠤⠤⠀⠌⠀⠕⠉⠓⠀⠛⠗⠕⠎⠎⠓⠁⠝⠙⠇⠁⠗⠀⠠⠃⠑⠗⠛⠤</row>
+					<row>⠀⠍⠁⠝⠀⠠⠚⠒⠗⠀⠌⠀⠎⠞⠁⠝⠝⠁⠗⠀⠕⠉⠓⠀⠞⠜⠝⠅⠑⠗</row>
+					<row>⠀⠎⠡⠒⠀⠌⠌⠀⠠⠙⠥⠀⠛⠁⠍⠇⠁⠀⠕⠉⠓⠀⠎⠞⠊⠇⠇⠤</row>
+					<row>⠀⠎⠁⠍⠍⠁⠀⠛⠥⠍⠍⠁⠀⠌⠀⠍⠑⠙⠀⠪⠛⠕⠝⠀⠎⠅⠥⠍⠍⠁</row>
+					<row>⠀⠁⠧⠀⠎⠕⠗⠛⠂⠀⠌⠀⠙⠥⠀⠎⠜⠇⠚⠑⠗⠀⠚⠥⠀⠃⠇⠡⠤</row>
+					<row>⠀⠎⠊⠏⠏⠕⠗⠂⠀⠎⠑⠗⠀⠚⠁⠛⠀⠌⠀⠤⠤⠀⠠⠝⠥⠀⠅⠪⠤</row>
+					<row>⠀⠏⠑⠗⠀⠚⠁⠛⠀⠓⠑⠇⠁⠀⠙⠊⠝⠀⠅⠕⠗⠛⠖</row>
+				</page>
+			</section>
+		</volume>
+	</body>
+</pef>

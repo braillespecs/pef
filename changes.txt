@@ -1,0 +1,24 @@
+--- v0613 ---
+* Updated "Rule Sets"
+* Updated "Informative References"
+* Rephrased in section "Error Handling"
+	"The user agent may choose the closest possible value that it supports," to
+	"The user agent may choose the closest possible smaller or larger value that it supports"
+* Rephrased in section "What is PEF?"
+	"The purpose of PEF is to represent braille pages in digital form accurately and unambiguously;" to
+	"PEF is a document type that represents braille pages in digital form, accurately and unambiguously;"
+* Restructured zip-file to include rule sets
+
+--- v0623 ---
+* Rephrased in section "Attributes"
+	"Defines an embossers ability to emboss on both sides of a sheet." to
+	"Defines whether or not both sides of the sheet should be embossed."
+* Added a section "Sections"
+* Removed "The distance is expressed as an integer multiple of the dot-to-dot height." from the informative section "Attributes"
+
+--- v0703 ---
+* Removed "The text node children of an unrecognized element must not be processed."
+* Moved "Recommended" statements under User Agent Conformance to a separate list
+
+--- v0908 ---
+* Changed mime type to application/x-pef+xml

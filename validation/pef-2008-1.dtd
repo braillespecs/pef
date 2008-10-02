@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--DTD for PEF (Portable Embosser Format) version 2008-1.
+	Generated from XML Schema by XMLSpy v2005 rel. 3 U (http://www.altova.com).
+	XML Schema generated from RELAX NG with Trang (http://www.thaiopensource.com/relaxng/trang.html).
+-->
+<!--the entity declarations may be overridden in the internal subset-->
+<!--namespace prefixes-->
+<!ENTITY % dc "dc">
+<!--namespace prefix to namespace uri mappings-->
+<!ENTITY % dc_prefix "%dc;:">
+<!--namespaces attributes for root element-->
+<!ENTITY % documentElementAttributes " xmlns:%dc; CDATA #FIXED 'http://purl.org/dc/elements/1.1/' xmlns CDATA #FIXED 'http://www.daisy.org/ns/2008/pef'">
+<!--the declarations below should not be modified-->
+<!--element name mappings-->
+<!ENTITY % title "%dc_prefix;title">
+<!ENTITY % identifier "%dc_prefix;identifier">
+<!ENTITY % creator "%dc_prefix;creator">
+<!ENTITY % subject "%dc_prefix;subject">
+<!ENTITY % description "%dc_prefix;description">
+<!ENTITY % publisher "%dc_prefix;publisher">
+<!ENTITY % contributor "%dc_prefix;contributor">
+<!ENTITY % date "%dc_prefix;date">
+<!ENTITY % type "%dc_prefix;type">
+<!ENTITY % format "%dc_prefix;format">
+<!ENTITY % source "%dc_prefix;source">
+<!ENTITY % language "%dc_prefix;language">
+<!ENTITY % relation "%dc_prefix;relation">
+<!ENTITY % coverage "%dc_prefix;coverage">
+<!ENTITY % rights "%dc_prefix;rights">
+
+<!--element and attribute declarations-->
+<!ELEMENT pef (head, body)>
+<!ATTLIST pef
+	version (2008-1) #REQUIRED
+	%documentElementAttributes; 
+>
+<!ELEMENT head (meta)>
+<!ATTLIST head
+	%documentElementAttributes; 
+>
+<!-- The cardinality of dc:xxxx elements is expressed more specifically in the source RELAX NG schema, e.g. dc:title is allowed to appear only once in an instance document.-->
+<!ELEMENT meta  (%identifier; | %title; | %creator; | %subject; | %description; | %publisher; | %contributor; | %date; | %type; | %format; | %source; | %language; | %relation; | %coverage; | %rights;)*>
+<!ATTLIST meta
+	%documentElementAttributes; 
+>
+<!ELEMENT body ((volume)+)>
+<!ATTLIST body
+	%documentElementAttributes; 
+>
+<!--Defines a volume of embossed braille.-->
+<!ELEMENT volume ((section)+)>
+<!ATTLIST volume
+	cols NMTOKEN #REQUIRED
+	rows NMTOKEN #REQUIRED
+	rowgap NMTOKEN #REQUIRED
+	duplex NMTOKEN #REQUIRED
+	%documentElementAttributes; 
+>
+<!--Defines a section of embossed braille.-->
+<!ELEMENT section ((page)+)>
+<!ATTLIST section
+	cols NMTOKEN #IMPLIED
+	rows NMTOKEN #IMPLIED
+	rowgap NMTOKEN #IMPLIED
+	duplex NMTOKEN #IMPLIED
+	%documentElementAttributes; 
+>
+<!--Defines a page of embossed braille.-->
+<!ELEMENT page ((row)+)>
+<!ATTLIST page
+	rowgap NMTOKEN #IMPLIED
+	number CDATA #IMPLIED
+	%documentElementAttributes; 
+>
+<!--Defines a row of embossed braille.-->
+<!ELEMENT row (#PCDATA)>
+<!ATTLIST row
+	rowgap NMTOKEN #IMPLIED
+	%documentElementAttributes; 
+>
+<!ELEMENT %title; (#PCDATA)>
+<!ATTLIST %title;
+	%documentElementAttributes; 
+>
+<!ELEMENT %identifier; (#PCDATA)>
+<!ATTLIST %identifier;
+	%documentElementAttributes; 
+>
+<!ELEMENT %creator; (#PCDATA)>
+<!ATTLIST %creator;
+	%documentElementAttributes; 
+>
+<!ELEMENT %subject; (#PCDATA)>
+<!ATTLIST %subject;
+	%documentElementAttributes; 
+>
+<!ELEMENT %description; (#PCDATA)>
+<!ATTLIST %description;
+	%documentElementAttributes; 
+>
+<!ELEMENT %publisher; (#PCDATA)>
+<!ATTLIST %publisher;
+	%documentElementAttributes; 
+>
+<!ELEMENT %contributor; (#PCDATA)>
+<!ATTLIST %contributor;
+	%documentElementAttributes; 
+>
+<!ELEMENT %date; (#PCDATA)>
+<!ATTLIST %date;
+	%documentElementAttributes; 
+>
+<!ELEMENT %type; (#PCDATA)>
+<!ATTLIST %type;
+	%documentElementAttributes; 
+>
+<!ELEMENT %format; (#PCDATA)>
+<!ATTLIST %format;
+	%documentElementAttributes; 
+>
+<!ELEMENT %source; (#PCDATA)>
+<!ATTLIST %source;
+	%documentElementAttributes; 
+>
+<!ELEMENT %language; (#PCDATA)>
+<!ATTLIST %language;
+	%documentElementAttributes; 
+>
+<!ELEMENT %relation; (#PCDATA)>
+<!ATTLIST %relation;
+	%documentElementAttributes; 
+>
+<!ELEMENT %coverage; (#PCDATA)>
+<!ATTLIST %coverage;
+	%documentElementAttributes; 
+>
+<!ELEMENT %rights; (#PCDATA)>
+<!ATTLIST %rights;
+	%documentElementAttributes; 
+>

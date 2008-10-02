@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:pef="http://www.daisy.org/ns/2008/pef" targetNamespace="http://purl.org/dc/elements/1.1/" elementFormDefault="qualified" version="1.0">
+	<xs:import namespace="http://www.daisy.org/ns/2008/pef" schemaLocation="pef-2008-1.xsd"/>
+	<xs:element name="title" type="pef:datatype.string"/>
+	<xs:element name="identifier" type="pef:datatype.string"/>
+	<xs:element name="creator" type="pef:datatype.string"/>
+	<xs:element name="subject" type="pef:datatype.string"/>
+	<xs:element name="description" type="pef:datatype.string"/>
+	<xs:element name="publisher" type="pef:datatype.string"/>
+	<xs:element name="contributor" type="pef:datatype.string"/>
+	<xs:element name="date" type="pef:datatype.iso8601.yyyyMmDd"/>
+	<xs:element name="type" type="pef:datatype.string"/>
+	<xs:element name="format" type="pef:datatype.mime.pef"/>
+	<xs:element name="source" type="pef:datatype.string"/>
+	<xs:element name="language" type="pef:datatype.rfc1766"/>
+	<xs:element name="relation" type="pef:datatype.string"/>
+	<xs:element name="coverage" type="pef:datatype.string"/>
+	<xs:element name="rights" type="pef:datatype.string"/>
+</xs:schema>

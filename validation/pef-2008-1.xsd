@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+		XML Schema for PEF (Portable Embosser Format) version 2008-1.
+		Generated from RELAX NG with Trang (http://www.thaiopensource.com/relaxng/trang.html)	
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:pef="http://www.daisy.org/ns/2008/pef" targetNamespace="http://www.daisy.org/ns/2008/pef" elementFormDefault="qualified" version="1.0">
+	<xs:import namespace="http://purl.org/dc/elements/1.1/" schemaLocation="dc.xsd"/>
+	<xs:element name="pef">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="pef:head"/>
+				<xs:element ref="pef:body"/>
+			</xs:sequence>
+			<xs:attributeGroup ref="pef:element.pef.attList"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:attributeGroup name="element.pef.attList">
+		<xs:attribute name="version" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:token">
+					<xs:enumeration value="2008-1"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:element name="head" type="pef:element.meta"/>
+	<xs:complexType name="element.meta">
+		<xs:sequence>
+			<xs:element ref="pef:meta"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="meta">
+		<xs:complexType>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The cardinality of dc:xxxx elements is expressed more specifically in the source RELAX NG schema, e.g. dc:identifier is allowed to appear only once in an instance document. </xs:documentation>
+				</xs:annotation>
+				<xs:element ref="dc:identifier"/>
+				<xs:element ref="dc:title"/>
+				<xs:element ref="dc:creator"/>
+				<xs:element ref="dc:subject"/>
+				<xs:element ref="dc:description"/>
+				<xs:element ref="dc:publisher"/>
+				<xs:element ref="dc:contributor"/>
+				<xs:element ref="dc:date"/>
+				<xs:element ref="dc:type"/>
+				<xs:element ref="dc:format"/>
+				<xs:element ref="dc:source"/>
+				<xs:element ref="dc:language"/>
+				<xs:element ref="dc:relation"/>
+				<xs:element ref="dc:coverage"/>
+				<xs:element ref="dc:rights"/>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="body">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="pef:volume" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="volume">
+		<xs:annotation>
+			<xs:documentation>Defines a volume of embossed braille.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="pef:section" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attributeGroup ref="pef:attribute.cols"/>
+			<xs:attributeGroup ref="pef:attribute.rows"/>
+			<xs:attributeGroup ref="pef:attribute.rowgap"/>
+			<xs:attributeGroup ref="pef:attribute.duplex"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="section">
+		<xs:annotation>
+			<xs:documentation>Defines a section of embossed braille.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="pef:page" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attributeGroup ref="pef:attribute.cols.optional"/>
+			<xs:attributeGroup ref="pef:attribute.rows.optional"/>
+			<xs:attributeGroup ref="pef:attribute.rowgap.optional"/>
+			<xs:attributeGroup ref="pef:attribute.duplex.optional"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="page">
+		<xs:annotation>
+			<xs:documentation>Defines a page of embossed braille.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="pef:row" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attributeGroup ref="pef:attribute.rowgap.optional"/>
+			<xs:attributeGroup ref="pef:attribute.page.number.optional"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="row">
+		<xs:annotation>
+			<xs:documentation>Defines a row of embossed braille.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="pef:datatype.string.unicode.braille">
+					<xs:attributeGroup ref="pef:attribute.rowgap.optional"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:attributeGroup name="attribute.cols">
+		<xs:annotation>
+			<xs:documentation>Defines the width (measured in characters) of page descendants.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="cols" type="pef:datatype.positiveInteger" use="required"/>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="attribute.cols.optional">
+		<xs:annotation>
+			<xs:documentation>Overrides any value defined by ancestors.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="cols" type="pef:datatype.positiveInteger"/>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="attribute.rows">
+		<xs:annotation>
+			<xs:documentation>Defines the height (measured in characters) of page descendants.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="rows" type="pef:datatype.positiveInteger" use="required"/>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="attribute.rows.optional">
+		<xs:annotation>
+			<xs:documentation>Overrides any value defined by ancestors.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="rows" type="pef:datatype.positiveInteger"/>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="attribute.rowgap">
+		<xs:annotation>
+			<xs:documentation>Defines the size of a gap between rows (expressed as a multiple of the dot-to-dot height). In practice, this value should be 0 or more for six dot braille and 1 or more for eight dot braille</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="rowgap" type="pef:datatype.nonNegativeInteger" use="required"/>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="attribute.rowgap.optional">
+		<xs:annotation>
+			<xs:documentation>Overrides any value defined by ancestors.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="rowgap" type="pef:datatype.nonNegativeInteger"/>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="attribute.duplex">
+		<xs:annotation>
+			<xs:documentation>Defines whether page descendants are intended for duplex printing or not.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="duplex" type="pef:datatype.boolean" use="required"/>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="attribute.duplex.optional">
+		<xs:annotation>
+			<xs:documentation>Overrides any value defined by ancestors.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="duplex" type="pef:datatype.boolean"/>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="attribute.page.number">
+		<xs:attribute name="number" type="pef:datatype.string" use="required"/>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="attribute.page.number.optional">
+		<xs:attribute name="number" type="pef:datatype.string"/>
+	</xs:attributeGroup>
+	<!-- data types -->
+	<xs:simpleType name="datatype.mime.pef">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="application/x-pef+xml"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="datatype.string.unicode.braille">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="([⠀-⣿])*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="datatype.rfc1766">
+		<xs:restriction base="xs:language"/>
+	</xs:simpleType>
+	<xs:simpleType name="datatype.string">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="datatype.boolean">
+		<xs:restriction base="xs:boolean"/>
+	</xs:simpleType>
+	<xs:simpleType name="datatype.integer">
+		<xs:restriction base="xs:integer"/>
+	</xs:simpleType>
+	<xs:simpleType name="datatype.iso8601.yyyyMmDd">
+		<xs:annotation>
+			<xs:documentation>[ISO8601] subset: requires yyyy-mm-dd
+			format</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="datatype.nonNegativeInteger">
+		<xs:restriction base="xs:nonNegativeInteger"/>
+	</xs:simpleType>
+	<xs:simpleType name="datatype.positiveInteger">
+		<xs:restriction base="xs:positiveInteger"/>
+	</xs:simpleType>
+</xs:schema>
