@@ -4,10 +4,15 @@
 		<meta xmlns:dc="http://purl.org/dc/elements/1.1/">
 			<dc:title>Butterfly Test Pattern</dc:title>
 			<dc:creator>Joel Håkansson</dc:creator>
-			<dc:date>2008-09-04</dc:date>
+			<dc:date>2008-09-26</dc:date>
 			<dc:format>application/x-pef+xml</dc:format>
 			<dc:identifier>org.pef.00001</dc:identifier>
-			<dc:description>PEF 1.0 Example. The test pattern is symmetric along the horizontal and vertical axis and uses all 6-dot patterns. In most cases, a faulty conversion will render an asymmetrical pattern.</dc:description>
+			<dc:description>
+				A PEF 1.0 example.
+				The file contains a test pattern that is symmetric along the horizontal
+				and vertical axis and uses all 6-dot patterns. In most cases, a 
+				faulty conversion will render an asymmetrical pattern.
+			</dc:description>
 		</meta>
 	</head>
 	<body>

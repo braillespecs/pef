@@ -21,8 +21,8 @@ span.author {font-size: 140%; display: block; font-family: arial, verdana, sans-
 
 /* --- HEADINGS --- */
 h1.title {color: #000000; font-family: arial, verdana, sans-serif; font-size : 250%; font-style: normal; font-weight: bold; margin-top: 5em; margin-bottom: 2em;}
-h1 {color: #000000; font-size : 175%; font-weight: bold; margin-top: 3em; margin-bottom: 1em;}
-h2 {color: #000000; font-size : 150%; font-weight: normal; margin-top: 2.5em; margin-bottom: 0.5em;}
+h1 {color: #000000; font-size : 200%; font-weight: bold; margin-top: 3em; margin-bottom: 1em;}
+h2 {color: #000000; font-size : 150%; font-weight: bold; margin-top: 2.5em; margin-bottom: 0.5em;}
 h3 {color: #000000; font-size : 135%; font-weight: normal; margin-top: 2em; margin-bottom: 1em;}
 h4 {color: #000000; font-size : 115%; font-weight: normal; margin-top: 1em; margin-bottom: 0em;}
 h5 {color: #000000; font-size : 105%; font-weight: bold; margin-top: 1em; margin-bottom: 0em;}
@@ -58,7 +58,7 @@ acronym, abbr {border-bottom : 1px dashed rgb(255,0,0); }
 /* --- LISTS --- */
 
 ul.plain li {list-style-type: none; margin-top: 1em; }
-ul li {list-style-type: disc; margin-top: 1em; }
+ul li {list-style-type: disc; }
 dt {margin-top: 1em; font-weight: bold;}
 span.pagenum {text-align: right; padding-left: 5em;}
 ol.lower-roman {list-style-type: lower-roman;}

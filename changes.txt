@@ -22,3 +22,28 @@
 
 --- v0908 ---
 * Changed mime type to application/x-pef+xml
+
+--- v0924 ---
+* Updated table of contents
+* Changed CSS for h1, h2, h3
+* Rephrased in "Abstract"
+	"This specification defines the Portable Embosser Format (PEF), a format that expresses embosser targeted Braille. It is an XML 1.0 application." to
+	"This document specifies the Portable Embosser Format (PEF), a data format for representing braille books. It is an XML 1.0 application."
+* Rephrased in section "What is PEF?"
+	"PEF is a document type" to
+	"The Portable Embosser Format (PEF) is a document type"
+	"thus enabling a completely automatic production of advanced braille books" to
+	"thus enabling a completely automated production of advanced braille books"
+* Fixed broken links to XMLNS
+* Rephrased "Why use unicode braille patterns?"
+	"Translating from Unicode braille patterns into any locally used ASCII based braille format, is a simple one-to-one-mapping" to
+	"Translating Unicode braille patterns into any ASCII based braille format is a simple one-to-one-mapping."
+* Rephrased "What is xml?"
+	"XML™ is the acronym for Extensible Markup Language [XML]. It was conceived as a means of retaining the power and flexibility of SGML, while reducing its complexity." to
+	"The Extensible Markup Language (XML) describes a class of data objects called XML documents. XML was conceived as a means of retaining the power and flexibility of SGML, while reducing its complexity [XML]."
+* Some other minor changes
+* Rephrased in "Elements"
+	- Removed the word "embossed"
+* Updated XML and XMLNS references
+* Changed appearence of "Informative references"
+
