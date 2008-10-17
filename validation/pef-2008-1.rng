@@ -7,10 +7,9 @@
 >
 
 	<a:documentation>
-		RELAX NG schema for Portable Embosser Format (PEF) 1.0
-		Working Draft 13 June 2008
-		Original version: Joel Håkansson &amp; Piotr Kiernicki 2007-01-10.
-		Version history:
+		RELAX NG schema for PEF 1.0 - Portable Embosser Format
+		Working Draft 15 October 2008
+		Authors: Piotr Kiernicki, Joel Håkansson, Linus Ericson
 	</a:documentation>
 
 	<start>
@@ -45,9 +44,14 @@
 				<element name="dc:identifier">
 					<ref name="datatype.string"/>
 				</element>
-				<element name="dc:title">
-					<ref name="datatype.string"/>
+				<element name="dc:format">
+					<ref name="datatype.mime.pef"/>
 				</element>
+				<optional>
+					<element name="dc:title">
+						<ref name="datatype.string"/>
+					</element>
+				</optional>
 				<zeroOrMore>
 					<element name="dc:creator">
 						<ref name="datatype.string"/>
@@ -81,11 +85,6 @@
 				<optional>
 					<element name="dc:type">
 						<ref name="datatype.string"/>
-					</element>
-				</optional>
-				<optional>
-					<element name="dc:format">
-						<ref name="datatype.mime.pef"/>
 					</element>
 				</optional>
 				<zeroOrMore>
@@ -128,12 +127,10 @@
 	<define name="element.volume">
 		<element name="volume">
 			<a:documentation>Defines a volume of embossed braille.</a:documentation>
-			<interleave>
-				<ref name="attribute.cols"/>
-				<ref name="attribute.rows"/>	
-				<ref name="attribute.rowgap"/>
-				<ref name="attribute.duplex"/>
-			</interleave>
+			<ref name="attribute.cols"/>
+			<ref name="attribute.rows"/>	
+			<ref name="attribute.rowgap"/>
+			<ref name="attribute.duplex"/>
 			<oneOrMore>
 				<ref name="element.section"/>
 			</oneOrMore>
@@ -147,6 +144,8 @@
 			<ref name="attribute.rows.optional"/>
 			<ref name="attribute.rowgap.optional"/>
 			<ref name="attribute.duplex.optional"/>
+			<ref name="attribute.page.offset"/>
+			<ref name="attribute.page.style"/>
 			<oneOrMore>
 				<ref name="element.page"/>
 			</oneOrMore>
@@ -157,10 +156,9 @@
 		<element name="page">
 			<a:documentation>Defines a page of embossed braille.</a:documentation>
 			<ref name="attribute.rowgap.optional"/>
-			<ref name="attribute.page.number.optional"/>
-			<oneOrMore>
+			<zeroOrMore>
 				<ref name="element.row"/>
-			</oneOrMore>
+			</zeroOrMore>
 		</element>
 	</define>
 	
@@ -213,7 +211,7 @@
 	
 	<define name="attribute.duplex">
 		<a:documentation>Defines whether page descendants are intended for duplex printing or not.</a:documentation>
-		<attribute name="duplex" a:defaultValue="false">
+		<attribute name="duplex">
 			<ref name="datatype.boolean"/>
 		</attribute>
 	</define>
@@ -224,24 +222,44 @@
 		</optional>	
 	</define>
 	
-	<define name="attribute.page.number">
-		<attribute name="number">
-			<ref name="datatype.string"/>
+	<define name="attribute.page.offset">
+		<attribute name="first-page-number">
+			<ref name="datatype.positiveInteger"/>
 		</attribute>
 	</define>
-	<define name="attribute.page.number.optional">
+	<define name="attribute.page.offset.optional">
 		<optional>
-			<ref name="attribute.page.number"/>
+			<ref name="attribute.page.offset"/>
+		</optional>	
+	</define>
+	
+	<define name="attribute.page.style">
+		<attribute name="page-number-style">
+			<ref name="datatype.page.style"/>
+		</attribute>
+	</define>
+	<define name="attribute.page.style.optional">
+		<optional>
+			<ref name="attribute.page.style"/>
 		</optional>	
 	</define>	
 	
 	<!-- data types -->
 	
-		<define name="datatype.mime.pef">
+	<define name="datatype.mime.pef">
 		<choice>
 			<value>application/x-pef+xml</value>
 		</choice>
 	</define>
+
+	<define name="datatype.page.style">
+		<choice>
+			<value>arabic</value>
+			<value>roman</value>
+			<value>other</value>
+		</choice>
+	</define>
+	
 	<define name="datatype.string.unicode.braille">
 		<data type="string">
 			<param name="pattern">([&#x2800;-&#x28FF;])*</param>

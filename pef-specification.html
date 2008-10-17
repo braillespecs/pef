@@ -19,14 +19,19 @@
 <body>
 <h1>PEF 1.0 - Portable Embosser Format</h1>
 
-<p>Working draft, revised 3 October 2008</p>
+<p>Working draft, revised 17 October 2008</p>
 <dl>
   <dt><a id="thisVersion" name="thisVersion">This version</a>:</dt>
     <dd><a
       href="http://www.daisy.org/projects/braille/braille_workarea/pef/pef-specification.html">http://www.daisy.org/projects/braille/braille_workarea/pef/pef-specification.html</a>
     </dd>
-  <dt>Authors:</dt>
-    <dd>Joel Håkansson, TPB</dd>
+  <dt>Author:</dt>
+    <dd>Joel Håkansson</dd>
+  <dt>Contributors:</dt>
+    <dd>Sean Brooks, Linus Ericson, Markus Gylling, Stefan Hofstetter, Robert
+      Jaquiss, Piotr Kiernicki, Fredrik Larsson, Rob Longstaff, Eva Munne,
+      Björn Nyqvist, Stephen Phippen, Matthias Ragaz, Per Sennels, Richard
+      Stones, Jennifer Sutton, Björn Westling, Markus Wildi</dd>
 </dl>
 
 <h2 id="Abstract"><a class="mozTocH2" name="mozTocId823610"></a>Abstract</h2>
@@ -48,7 +53,7 @@ Contents</h2>
   <li><a href="#Introducti">Introduction</a> 
     <ul>
       <li><a href="#What">What is PEF?</a></li>
-      <li><a href="#there">Why is PEF necessary?</a></li>
+      <li><a href="#there">Why is PEF Necessary?</a></li>
       <li><a href="#What1">What is Unicode?</a></li>
       <li><a href="#Unicode">Why Use Unicode Braille Patterns?</a></li>
       <li><a href="#What2">What is XML?</a></li>
@@ -61,7 +66,7 @@ Contents</h2>
   <li><a href="#Definition">Definitions</a> 
     <ul>
       <li><a href="#Terminolog">Terminology</a></li>
-      <li><a href="#General">General terms</a></li>
+      <li><a href="#General">General Terms</a></li>
       <li><a href="#Relationsh">Axes &amp; Node Types</a></li>
       <li><a href="#Relationsh11">Relationship to Other
       Specifications</a></li>
@@ -74,17 +79,30 @@ Contents</h2>
       <li><a href="#Error">Rendering Definitions</a></li>
       <li><a href="#Attribute11">Attribute Value Inheritance</a></li>
       <li><a href="#Using">Using PEF with Other Namespaces</a></li>
-      <li><a href="#Internet">Internet Media Type &amp; File
-      Extension</a></li>
+      <li><a href="#Internet">Internet Media Type and File Extension</a></li>
     </ul>
   </li>
-  <li><a href="#Elements">Elements</a></li>
+  <li><a href="#Elements">Elements</a> 
+    <ul>
+      <li><a href="#pef">pef</a></li>
+      <li><a href="#head">head</a></li>
+      <li><a href="#meta">meta</a></li>
+      <li><a href="#L13600">dc:format</a></li>
+      <li><a href="#L13681">dc:identifier</a></li>
+      <li><a href="#body">body</a></li>
+      <li><a href="#volume">volume</a></li>
+      <li><a href="#section">section</a></li>
+      <li><a href="#page">page</a></li>
+      <li><a href="#row">row</a></li>
+    </ul>
+  </li>
   <li><a href="#Attributes">Attributes</a></li>
-  <li><a href="#Error1">Error Handling</a></li>
-  <li><a href="#Rule">Rule sets</a> 
+  <li><a href="#Error1">Metadata Extension</a></li>
+  <li><a href="#Error11">Error Handling</a></li>
+  <li><a href="#Rule">Rule Sets</a> 
     <ul>
       <li><a href="#Relax">Relax NG</a></li>
-      <li><a href="#Schema1">XML Schemas and DTD rule sets</a></li>
+      <li><a href="#Schema1">XML Schemas and DTD Rule Sets</a></li>
     </ul>
   </li>
   <li><a href="#References">References</a> 
@@ -110,7 +128,7 @@ matter where nor how it was produced. PEF allows new features to be added
 such as ink overlay or tactile graphics, thus enabling a completely automated
 production of advanced braille books.</p>
 
-<h3 id="there">Why is PEF necessary?</h3>
+<h3 id="there">Why is PEF Necessary?</h3>
 
 <p>PEF brings a number of things to braille production:</p>
 <ul>
@@ -136,28 +154,23 @@ production of advanced braille books.</p>
 
 <h3 id="What1">What is Unicode?</h3>
 
-<blockquote>
-  <p>Unicode provides a unique number for every character, no matter what the
-  platform, no matter what the program, no matter what the language.</p>
+<p>Unicode provides a unique number for every character, regardless of
+platform, software and language.</p>
 
-  <p>Fundamentally, computers just deal with numbers. They store letters and
-  other characters by assigning a number for each one. Before Unicode was
-  invented, there were hundreds of different encoding systems for assigning
-  these numbers. No single encoding could contain enough characters: for
-  example, the European Union alone requires several different encodings to
-  cover all its languages. Even for a single language like English no single
-  encoding was adequate for all the letters, punctuation, and technical
-  symbols in common use.</p>
+<p>Computers store letters and other characters by assigning a number for
+each one. Before Unicode was invented, there were hundreds of different
+encoding systems for assigning these numbers. No single encoding could
+contain enough characters: for example, the European Union alone requires
+several different encodings to cover all its languages. Even for a single
+language like English no single encoding was adequate for all the letters,
+punctuation, and technical symbols in common use.</p>
 
-  <p>These encoding systems also conflict with one another. That is, two
-  encodings can use the same number for two different characters, or use
-  different numbers for the same character. Any given computer (especially
-  servers) needs to support many different encodings; yet whenever data is
-  passed between different encodings or platforms, that data always runs the
-  risk of corruption.</p>
-
-  <p>[<a class="nref" href="#ref-unicode">Unicode]</a></p>
-</blockquote>
+<p>These encoding systems also conflict with one another. That is, two
+encodings can use the same number for two different characters, or use
+different numbers for the same character. Any given computer (especially
+servers) needs to support many different encodings; yet whenever data is
+passed between different encodings or platforms, that data always runs the
+risk of corruption. [<a class="nref" href="#ref-unicode">Unicode]</a></p>
 
 <h3 id="Unicode">Why Use Unicode Braille Patterns?</h3>
 
@@ -251,10 +264,21 @@ layout control that an embosser must support.</p>
 SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document
 are to be interpreted as described in <a href="#ref-rfc2119">RFC 2119</a>.</p>
 
-<h3 id="General">General terms</h3>
+<h3 id="General">General Terms</h3>
 <dl>
-  <dt>Attribute</dt>
-    <dd>See <a href="#Node">Node Types</a>.</dd>
+  <dt>6-dot braille</dt>
+    <dd>6-dot braille is a writing system that only utilizes braille patterns
+      consisting of a combination of the uppermost six dots. See also
+      <dfn>Unicode character range 2800-283F</dfn>.</dd>
+  <dt>8-dot braille</dt>
+    <dd>8-dot braille is a writing system that utilizes all possible braille
+      patterns. See also Unicode character range 2800-28FF.</dd>
+  <dt>Braille cell</dt>
+    <dd>A braille cell is a single braille unit or character. At least one
+      braille cell is needed to form a single print character.</dd>
+  <dt>Braille pattern</dt>
+    <dd>A braille pattern is a combination of dots that make up a
+      <dfn>braille cell</dfn>.</dd>
   <dt>Document</dt>
     <dd>A document is a stream of data that, after being combined with any
       other streams it references, is structured such that it holds
@@ -262,15 +286,13 @@ are to be interpreted as described in <a href="#ref-rfc2119">RFC 2119</a>.</p>
       are organized as defined in an associated <span
       class="term">schema</span>. See <a href="#docconf">Document
       Conformance</a> for more information.</dd>
-  <dt>Element</dt>
-    <dd>See <a href="#Node">Node Types</a>.</dd>
   <dt><a name="facilities" id="facilities">Facilities</a></dt>
     <dd>Facilities are <span class="term">elements</span>, <span
       class="term">attributes</span>, and the semantics associated with those
       <span class="term">elements</span> and <span
       class="term">attributes</span>.</dd>
   <dt>Implementation</dt>
-    <dd>See User Agent.</dd>
+    <dd>See User agent.</dd>
   <dt>Parsing</dt>
     <dd>Parsing is the act whereby a <span class="term">document</span> is
       read, and the information contained within the <span
@@ -286,7 +308,17 @@ are to be interpreted as described in <a href="#ref-rfc2119">RFC 2119</a>.</p>
       define the legal structure, <span class="term">elements</span>, and
       <span class="term">attributes</span> available for use in an XML
       document that complies to the defined schema.</dd>
-  <dt>User Agent</dt>
+  <dt>Unicode character range 2800-283F</dt>
+    <dd>The range of 6-dot braille patterns in Unicode. See also <dfn>6-dot
+      braille</dfn>.</dd>
+  <dt>Unicode character range 2800-28FF</dt>
+    <dd>The complete range of braille patterns in Unicode; the range of 8-dot
+      braille patterns in Unicode. See also <dfn>8-dot braille</dfn>.</dd>
+  <dt>Unicode character range 2840-28FF</dt>
+    <dd>The range of braille patterns in Unicode that are unique to 8-dot
+      braille, i.e. any 8-dot braille pattern that isn't in the 6-dot braille
+      pattern subset.</dd>
+  <dt>User agent</dt>
     <dd>See <a
       href="http://www.w3.org/TR/di-gloss/#def-user-agent">definition</a> in
       Device Independence Glossary document.</dd>
@@ -346,30 +378,32 @@ meet all of the following criteria:</p>
     declaration for the PEF namespace [<a href="#ref-xmlns">XMLNS</a>]. The
     namespace URI for PEF 1.0 is defined to be
     <dfn>http://www.daisy.org/ns/2008/pef</dfn>. An example root element
-    might look like: &lt;pef xmlns="http://www.daisy.org/ns/2008/pef"&gt;</li>
+    might look like: &lt;pef version="2008-1"
+    xmlns="http://www.daisy.org/ns/2008/pef"&gt;</li>
+  <li>It must be encoded with UTF-8 or UTF-16 encoding as per [<a
+    class="nref" href="#ref-unicode">Unicode</a>].</li>
 </ol>
 
 <h3 id="User"><a name="uaconf" id="uaconf">User Agent Conformance</a></h3>
 
 <p>A conforming user agent must meet all of the following criteria:</p>
 <ol class="plain">
-  <li>The user agent must parse and evaluate a PEF document for
-    well-formedness.</li>
+  <li>The user agent must support UTF-8 encoding as per [<a class="nref"
+    href="#ref-unicode">Unicode</a>].</li>
+  <li>The user agent must support Unicode character range 2800-283F.</li>
   <li>When the user agent claims to support facilities defined within this
     specification or required by this specification through normative
     reference, it must do so in ways consistent with the facilities'
     definition.</li>
-  <li>The user agent must support UTF-8 encoding as per [<a class="nref"
-    href="#ref-unicode">Unicode</a>].</li>
-  <li>The user agent must support Unicode character range 2800-283F.</li>
   <li>If a user agent encounters an element it does not recognize, it must
     process the element's child nodes, except its text node children. For
-    example, a user agent should read the following: 
-    <p><samp xml:space="preserve">&lt;pef:page xmlns:pef="http://www.daisy.org/ns/2008/pef"&gt;</samp><br
+    example, a user agent should read 
+    <p><samp xml:space="preserve">...</samp><br />
+    <samp xml:space="preserve">&lt;pef:page xmlns:pef="http://www.daisy.org/ns/2008/pef"&gt;</samp><br
     />
-    <samp xml:space="preserve">  &lt;ext1:group xmlns:ext1="http://www.example.org"&gt;</samp><br
+    <samp xml:space="preserve">  &lt;ext:group xmlns:ext="http://www.example.org"&gt;</samp><br
     />
-    <samp xml:space="preserve">  &lt;ext1:annotation&gt;This is a row group annotation&lt;/ext1:annotation&gt;</samp><br
+    <samp xml:space="preserve">  &lt;ext:annotation&gt;This is a row group annotation&lt;/ext:annotation&gt;</samp><br
     />
     <samp xml:space="preserve">    &lt;pef:row&gt;&amp;#x2800;&amp;#x2801;&lt;/pef:row&gt;</samp><br
     />
@@ -377,10 +411,12 @@ meet all of the following criteria:</p>
     />
     <samp xml:space="preserve">    &lt;pef:row&gt;&amp;#x2800;&amp;#x2803;&lt;/pef:row&gt;</samp><br
     />
-    <samp xml:space="preserve">  &lt;/ext1:group&gt;</samp><br />
-    <samp xml:space="preserve">&lt;/pef:page&gt;</samp></p>
+    <samp xml:space="preserve">  &lt;/ext:group&gt;</samp><br />
+    <samp xml:space="preserve">&lt;/pef:page&gt;</samp><br />
+    <samp xml:space="preserve">...</samp></p>
     <p>as</p>
-    <p><samp xml:space="preserve">&lt;pef:page xmlns:pef="http://www.daisy.org/ns/2008/pef"&gt;</samp><br
+    <p><samp xml:space="preserve">...</samp><br />
+    <samp xml:space="preserve">&lt;pef:page xmlns:pef="http://www.daisy.org/ns/2008/pef"&gt;</samp><br
     />
     <samp xml:space="preserve">  &lt;pef:row&gt;&amp;#x2800;&amp;#x2801;&lt;/pef:row&gt;</samp><br
     />
@@ -388,21 +424,17 @@ meet all of the following criteria:</p>
     />
     <samp xml:space="preserve">  &lt;pef:row&gt;&amp;#x2800;&amp;#x2803;&lt;/pef:row&gt;</samp><br
     />
-    <samp xml:space="preserve">&lt;/pef:page&gt;</samp></p>
-    <p>Note that the annotation text was not read.</p>
+    <samp xml:space="preserve">&lt;/pef:page&gt;</samp><br />
+    <samp xml:space="preserve">...</samp></p>
+    <p>if the namespace associated with the <dfn>ext</dfn> prefix is unknown
+    to the user agent. Note that the annotation text was not read.</p>
   </li>
   <li>If a user agent encounters an attribute it does not recognize, it must
     ignore the entire attribute specification (i.e., the attribute and its
     value).</li>
   <li>If a user agent encounters an attribute value it does not recognize, it
-    must use the default attribute value.</li>
-  <li>If a user agent encounters an entity reference (other than one of the
-    entities defined in this or in the XML specification) for which the user
-    agent has processed no declaration (which could happen if the declaration
-    is in the external subset which the user agent hasn't read), the entity
-    reference should be processed as the characters (starting with the
-    ampersand and ending with the semi-colon) that make up the entity
-    reference.</li>
+    must ignore the entire attribute specification (i.e., the attribute and
+    its value).</li>
 </ol>
 
 <p>A conforming user agent is recommended to meet the following criteria:</p>
@@ -414,27 +446,35 @@ meet all of the following criteria:</p>
 
 <h3 id="Error">Rendering Definitions</h3>
 <dl>
-  <dt>Dot-to-dot Height</dt>
+  <dt>Dot-to-dot height</dt>
     <dd>The vertical distance between dot centers within a Braille cell.</dd>
-  <dt>Page Alignment</dt>
-    <dd>Pages align to the top-left corner of the page.</dd>
-  <dt>Row Height</dt>
+  <dt>Page alignment</dt>
+    <dd>Pages align to the top-left corner of the embosseble area of a
+    sheet.</dd>
+  <dt>Row height</dt>
     <dd>Row height, excluding row gap, is four times the dot-to-dot height,
       regardless of whether the user agent supports Unicode character range
       2840-28FF or not.</dd>
-  <dt>Row Gap</dt>
-    <dd>Row gap is expressed as an integer multiple of the dot-to-dot
-    height.</dd>
+  <dt>Row gap</dt>
+    <dd>Row gap is rendered below the row it is associated with. Row gap is
+      expressed as an integer multiple of the dot-to-dot height.</dd>
   <dt>Sections</dt>
-    <dd>A section always starts on a blank sheet of paper.</dd>
+    <dd>A section always starts on a blank sheet of paper. The reason for
+      this is that a change from duplex to simplex or vice-versa can't be
+      accurately effectuated unless the sheet is blank.</dd>
 </dl>
 
 <h3 id="Attribute11"><a name="Attribute" id="Attribute">Attribute Value
 Inheritance</a></h3>
 
 <p>The value specified by the attributes cols, rows, rowgap and duplex
-applies to the element where it is specified, and to all elements in its
-content unless overridden by another instance of these attributes.</p>
+applies to the element where it is specified, and to its descendants unless
+overridden by another instance of these attributes.</p>
+
+<p>The attribute value inheritance of the xml:lang attribute is consistant
+with the definition in <a
+href="http://www.w3.org/TR/xml/#sec-lang-tag">Section 2.12</a> of the XML 1.0
+Recommendation [<a class="nref" href="#ref-xml">XML</a>].</p>
 
 <h3 id="Using"><a name="Using1" id="Using1">Using PEF with Other
 Namespaces</a></h3>
@@ -442,7 +482,7 @@ Namespaces</a></h3>
 <p>The PEF namespace may be used with other XML namespaces as per [<a
 href="#ref-xmlns">XMLNS</a>].</p>
 
-<h3 id="Internet">Internet Media Type &amp; File Extension</h3>
+<h3 id="Internet">Internet Media Type and File Extension</h3>
 
 <p>The Internet media type for PEF is "application/x-pef+xml".</p>
 
@@ -451,27 +491,115 @@ on all platforms.</p>
 
 <h2 id="Elements">Elements</h2>
 
-<p><strong>This section is informative.</strong> </p>
+<p><strong>This section is informative.</strong></p>
+
+<p>The prefix <dfn>dc</dfn> is used in this section on elements in the Dublin
+Core namespace. Unprefixed elements are in the PEF namespace.</p>
+
+<h3 id="pef">pef</h3>
 <dl>
-  <dt>pef</dt>
-    <dd>Root element.</dd>
-  <dt>head</dt>
-    <dd>Header container.</dd>
-  <dt>meta</dt>
-    <dd>Metadata container as per [<a class="nref"
-      href="#ref-dublincore">Dublin Core</a>].</dd>
-  <dt>body</dt>
-    <dd>Body container.</dd>
-  <dt>volume</dt>
-    <dd>Defines a braille volume.</dd>
-  <dt>section</dt>
-    <dd>Defines a section of braille pages. The section element provides a
-      generic container for attribute value inheritance that is smaller than
-      a volume, but larger than a page.</dd>
-  <dt>page</dt>
-    <dd>Defines a braille page.</dd>
-  <dt>row</dt>
-    <dd>Defines a row of braille.</dd>
+  <dt>Description</dt>
+    <dd>The pef element is the root element of a PEF document.</dd>
+  <dt>Child elements</dt>
+    <dd>head (mandatory)</dd>
+    <dd>body (mandatory)</dd>
+</dl>
+
+<h3 id="head">head</h3>
+<dl>
+  <dt>Description</dt>
+    <dd>The head element contains header information, such as metadata.</dd>
+  <dt>Parent element</dt>
+    <dd>pef</dd>
+  <dt>Child elements</dt>
+    <dd>meta (mandatory)</dd>
+</dl>
+
+<h3 id="meta">meta</h3>
+<dl>
+  <dt>Description</dt>
+    <dd>The meta element contains metadata information. Metadata elements as
+      per [<a class="nref" href="#ref-dublincore">Dublin Core</a>].</dd>
+  <dt>Parent element</dt>
+    <dd>head</dd>
+  <dt>Child elements</dt>
+    <dd>dc:format (mandatory)</dd>
+    <dd>dc:identifier (mandatory)</dd>
+    <dd>dc:title (optional)</dd>
+    <dd>...</dd>
+</dl>
+
+<h3 id="L13600">dc:format</h3>
+<dl>
+  <dt>Description</dt>
+    <dd>The file format, physical medium, or dimensions of the resource.</dd>
+  <dt>Parent element</dt>
+    <dd>meta</dd>
+  <dt>Value</dt>
+    <dd>The string "application/x-pef+xml".</dd>
+</dl>
+
+<h3 id="L13681">dc:identifier</h3>
+<dl>
+  <dt>Description</dt>
+    <dd>An unambiguous reference to the resource within a given context.</dd>
+  <dt>Parent element</dt>
+    <dd>meta</dd>
+  <dt>Value</dt>
+    <dd>A unique identifier.</dd>
+</dl>
+
+<h3 id="body">body</h3>
+<dl>
+  <dt>Description</dt>
+    <dd>The body element contains the body of the document, its contents.</dd>
+  <dt>Parent element</dt>
+    <dd>pef</dd>
+  <dt>Child elements</dt>
+    <dd>volume (at least one)</dd>
+</dl>
+
+<h3 id="volume">volume</h3>
+<dl>
+  <dt>Description</dt>
+    <dd>The volume element defines a volume of braille, i.e. a range of pages
+      that, once embossed, are to be joined together to form a physical
+    unit.</dd>
+  <dt>Parent element</dt>
+    <dd>body</dd>
+  <dt>Child elements</dt>
+    <dd>section (at least one)</dd>
+</dl>
+
+<h3 id="section">section</h3>
+<dl>
+  <dt>Description</dt>
+    <dd>The section element defines a range of pages in a volume that share
+      some common property, such as duplex or dimensions settings.</dd>
+  <dt>Parent element</dt>
+    <dd>volume</dd>
+  <dt>Child elements</dt>
+    <dd>page (at least one)</dd>
+</dl>
+
+<h3 id="page">page</h3>
+<dl>
+  <dt>Description</dt>
+    <dd>The page element defines a braille page.</dd>
+  <dt>Parent element</dt>
+    <dd>section</dd>
+  <dt>Child elements</dt>
+    <dd>row (zero or more)</dd>
+</dl>
+
+<h3 id="row">row</h3>
+<dl>
+  <dt>Description</dt>
+    <dd>The row element defines a row of braille.</dd>
+  <dt>Parent element</dt>
+    <dd>page</dd>
+  <dt>Value</dt>
+    <dd>A string containing nothing but Unicode braille patterns.</dd>
 </dl>
 
 <h2 id="Attributes">Attributes</h2>
@@ -481,57 +609,99 @@ on all platforms.</p>
 <p>Attributes operate within the scope defined in the <a
 href="#Attribute">Attribute Value Inheritance</a> section.</p>
 <dl>
-  <dt>rows</dt>
-    <dd>Defines the maximum number of rows that can occur on a page.</dd>
   <dt>cols</dt>
-    <dd>Defines the maximum number of columns that can occur on a page. One
+    <dd>Defines the maximum number of columns that can occur on a row. One
       column equals one braille cell.</dd>
-  <dt>rowgap</dt>
-    <dd>Defines the size of the gap following a row. This value should be 0
-      or more for six dot braille and 1 or more for eight dot braille.</dd>
+    <dd>This attribute is mandatory on volume elements and optional on
+      section elements.</dd>
   <dt>duplex</dt>
     <dd>Defines whether or not both sides of the sheet should be
     embossed.</dd>
+    <dd>This attribute is mandatory on volume elements and optional on
+      section elements.</dd>
+  <dt>rowgap</dt>
+    <dd>Defines the size of the gap following a row. This value should be 0
+      or more for 6-dot braille and 1 or more for 8-dot braille.</dd>
+    <dd>This attribute is mandatory on volume elements and optional on
+      section and page elements.</dd>
+  <dt>rows</dt>
+    <dd>Defines the maximum number of rows that can occur on a page.</dd>
+    <dd>This attribute is mandatory on volume elements and optional on
+      section elements.</dd>
 </dl>
 
-<h2 id="Error1">Error Handling</h2>
+<h2 id="Error1">Metadata Extension</h2>
+
+<p><strong>This section is informative.</strong></p>
+
+<p>PEF includes Dublin Core metadata elements for convenience, but the
+metadata section can easily be extended to include other elements. Here's an
+example of how to extend the metadata section.</p>
+
+<p><samp xml:space="preserve">&lt;head&gt;</samp><br />
+<samp xml:space="preserve">  &lt;meta xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:org="http://www.example.org"&gt;</samp><br
+/>
+<samp xml:space="preserve">    &lt;dc:title&gt;Butterfly Test Pattern&lt;/dc:title&gt;</samp><br
+/>
+<samp xml:space="preserve">    &lt;dc:creator&gt;Joel Håkansson&lt;/dc:creator&gt;</samp><br
+/>
+<samp xml:space="preserve">    &lt;dc:date&gt;2008-09-26&lt;/dc:date&gt;</samp><br
+/>
+<samp xml:space="preserve">    &lt;dc:format&gt;application/x-pef+xml&lt;/dc:format&gt;</samp><br
+/>
+<samp xml:space="preserve">    &lt;dc:identifier&gt;org.pef.00001&lt;/dc:identifier&gt;</samp><br
+/>
+<samp xml:space="preserve">    &lt;dc:description&gt;</samp><br />
+<samp>A PEF 1.0 example. The file contains a test pattern that is symmetric
+along the horizontal and vertical axis and uses all 6-dot patterns. In most
+cases, a faulty conversion will render an asymmetrical pattern.</samp><br />
+<samp xml:space="preserve">    &lt;/dc:description&gt;</samp><br />
+<samp xml:space="preserve">    &lt;org:paper-size value="A4"/&gt;</samp><br />
+<samp xml:space="preserve">    &lt;org:grade value="1"/&gt;</samp><br />
+<samp xml:space="preserve">    &lt;org:margin-top value="5cm"/&gt;</samp><br
+/>
+<samp xml:space="preserve">    &lt;org:margin-left value="2cm"/&gt;</samp><br
+/>
+<samp xml:space="preserve">    &lt;org:binding content="coil"/&gt;</samp><br
+/>
+<samp xml:space="preserve">  &lt;/meta&gt;</samp><br />
+<samp xml:space="preserve">&lt;/head&gt;</samp></p>
+
+<h2 id="Error11">Error Handling</h2>
 
 <p><strong>This section is normative.</strong></p>
 
-<p>If a user agent encounters a document that it is unable to process it must
-inform the user and abort processing. However, because of embosser
-limitations, fallback behaviour is acceptable under the following
-circumstances:</p>
+<p>If a user agent encounters a document that it is unable to process must
+inform the user and abort. However, because of embosser limitations, fallback
+behaviour is acceptable under the following circumstances:</p>
 <dl>
   <dt>The user agent cannot set row gap to the specified value</dt>
     <dd>The user agent may choose the closest possible smaller or larger
       value that it supports, as long as no exception is raised as a
-      consequence, and continue processing given that the user is informed.
-      Optionally, the user agent may prompt the user before continuing.</dd>
+      consequence. The user agent may prompt the user before continuing.</dd>
   <dt>The user agent cannot set specified duplex value</dt>
     <dd>The user agent may choose a value that it supports and continue
-      processing given that the user is informed. Optionally, the user agent
-      may prompt the user before continuing.</dd>
-  <dt>The user agent cannot divide into volumes</dt>
-    <dd>The user agent may disregard volume division and continue processing
-      given that the user is informed. Optionally, the user agent may prompt
-      the user before continuing.</dd>
+      processing. The user agent may prompt the user before continuing.</dd>
+  <dt>The user agent cannot produce volumes</dt>
+    <dd>The user agent may disregard volume information and continue
+      processing. The user agent may prompt the user before continuing.</dd>
   <dt>The user agent cannot process braille patterns in range 2840-28FF</dt>
-    <dd>If the document contains only a few braille patterns in the range
-      2840-28FF, the user agent may prompt the user for one of the following
-      actions: 
+    <dd>The user agent may prompt the user for one of the following actions: 
       <ol>
-        <li>remove the unsupported braille patterns (rows will be
+        <li>ignore the unsupported braille patterns (rows will be
         shortened)</li>
-        <li>replace the unsupported braille patterns with another braille
-          pattern</li>
-        <li>truncate the unsupported braille patterns, e.g. by bit masking
-          the code point with 283F</li>
+        <li>replace the unsupported braille patterns with a fixed
+          replacement, e.g. 2800 (empty cell) or 283F (full cell).</li>
+        <li>trim the unsupported braille patterns by ignoring dots 7 and 8,
+          e.g. by bit masking the code point with 283F.</li>
       </ol>
     </dd>
 </dl>
 
-<h2 id="Rule">Rule sets</h2>
+<p>A user agent that implements fallback behaviour must inform the user of
+the rendering implications.</p>
+
+<h2 id="Rule">Rule Sets</h2>
 
 <p>The rule sets mentioned below are included in the <a
 href="pef-2008-1.zip">zip file</a> for this specification. Users looking for
@@ -548,7 +718,7 @@ normative part of this specification. It defines the data model for the PEF
 and Dublin Core namespace. Other namespaces must be filtered out before
 evaluating against this rule set.</p>
 
-<h3 id="Schema1">XML Schemas and DTD rule sets</h3>
+<h3 id="Schema1">XML Schemas and DTD Rule Sets</h3>
 
 <p><strong>This section is informative.</strong></p>
 
@@ -618,14 +788,14 @@ href="#ref-dublincore">Dublin Core</a>].</p>
   <dt>[Example PEF document: Om våren]</dt>
     <dd>"<a href="examples/poem.pef">examples/poem.pef</a>". A poem by the
       Swedish poet Nils Ferlin called "Om våren" (the text is in Swedish).
-      Accessibility note: The text may not display with JAWS or braille
-      display.</dd>
+      Accessibility note: The Unicode braille patterns in this file may not
+      display with JAWS or braille display.</dd>
   <dt>[Example PEF document: Butterfly Test Pattern]</dt>
     <dd>"<a href="examples/butterfly.pef">examples/butterfly.pef</a>". A test
       pattern that uses all 6-dot braille patterns, rendering a butterfly
       shape.<br />
-      Accessibility note: The text may not display with JAWS or braille
-      display.</dd>
+      Accessibility note: The Unicode braille patterns in this file may not
+      display with JAWS or braille display.</dd>
 </dl>
 </body>
 </html>
