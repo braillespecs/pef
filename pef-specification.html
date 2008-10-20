@@ -19,7 +19,7 @@
 <body>
 <h1>PEF 1.0 - Portable Embosser Format</h1>
 
-<p>Working draft, revised 17 October 2008</p>
+<p>Working draft, revised 19 October 2008</p>
 <dl>
   <dt><a id="thisVersion" name="thisVersion">This version</a>:</dt>
     <dd><a
@@ -29,9 +29,9 @@
     <dd>Joel Håkansson</dd>
   <dt>Contributors:</dt>
     <dd>Sean Brooks, Linus Ericson, Markus Gylling, Stefan Hofstetter, Robert
-      Jaquiss, Piotr Kiernicki, Fredrik Larsson, Rob Longstaff, Eva Munne,
-      Björn Nyqvist, Stephen Phippen, Matthias Ragaz, Per Sennels, Richard
-      Stones, Jennifer Sutton, Björn Westling, Markus Wildi</dd>
+      Jaquiss, Piotr Kiernicki, Fredrik Larsson, Rob Longstaff, Björn
+      Nyqvist, Stephen Phippen, Matthias Ragaz, Per Sennels, Richard Stones,
+      Jennifer Sutton, Björn Westling, Markus Wildi</dd>
 </dl>
 
 <h2 id="Abstract"><a class="mozTocH2" name="mozTocId823610"></a>Abstract</h2>
@@ -60,7 +60,7 @@ Contents</h2>
       <li><a href="#L249">Why Use XML?</a></li>
       <li><a href="#What3">On Hardware Limitations</a></li>
       <li><a href="#Scope">Scope Limitations</a></li>
-      <li><a href="#Future">Future</a></li>
+      <li><a href="#Future">Further Development</a></li>
     </ul>
   </li>
   <li><a href="#Definition">Definitions</a> 
@@ -88,7 +88,6 @@ Contents</h2>
       <li><a href="#head">head</a></li>
       <li><a href="#meta">meta</a></li>
       <li><a href="#L13600">dc:format</a></li>
-      <li><a href="#L13681">dc:identifier</a></li>
       <li><a href="#body">body</a></li>
       <li><a href="#volume">volume</a></li>
       <li><a href="#section">section</a></li>
@@ -124,7 +123,7 @@ Contents</h2>
 braille pages in digital form, accurately and unambiguously; regardless of
 language, location, embosser settings, braille code and computer environment.
 It can be used for braille embossing and archiving anywhere in the world, no
-matter where nor how it was produced. PEF allows new features to be added
+matter where nor how it was produced. PEF allows new features to be added,
 such as ink overlay or tactile graphics, thus enabling a completely automated
 production of advanced braille books.</p>
 
@@ -145,11 +144,11 @@ production of advanced braille books.</p>
     code used in musical notation is the same all over the world. With PEF,
     this material can be shared in electronic form with anyone.</li>
   <li>Archive safety. Because PEF is specified and the braille representation
-    unambiguous, it can safely be archived for the future.</li>
+    unambiguous, it can be safely archived for the future.</li>
   <li>Economy. Publishing and republishing of braille can be achieved quickly
-    and easily because files can be shared across the world, without any
-    worry about embosser settings. Users can become publishers and providers
-    can share resources and reduce costs.</li>
+    and easily because files can be shared across the world, without worrying
+    about embosser settings. Users can become publishers and providers can
+    share resources and reduce costs.</li>
 </ul>
 
 <h3 id="What1">What is Unicode?</h3>
@@ -179,13 +178,12 @@ reasons:</p>
 <ol>
   <li>Unicode and the Unicode braille patterns are locale independent. The
     translation between ASCII characters and braille patterns isn’t. For
-    example, common characters like ‘.’, ‘?’, ‘(‘, ‘)’,
-    ‘+’, ‘$’, ‘%’ and ‘#’ render different braille patterns
-    depending on locale. It is impossible to send an ASCII file for embossing
-    on an embosser configured for another locale. This is a major issue for
-    the non English speaking part of the world and it is the main reason to
-    use Unicode braille patterns instead of ASCII characters to represent
-    braille.</li>
+    example, common characters like .?()+$% and # render different braille
+    patterns depending on locale. It is impossible to send an ASCII file for
+    embossing on an embosser configured for another locale. This is a major
+    issue for the non English speaking part of the world and it is the main
+    reason for using Unicode braille patterns instead of ASCII
+  characters.</li>
   <li>Unicode braille pattern are unambiguous. Even if there were only one
     braille pattern for each ASCII character, the interpretation would still
     be ambiguous, since ASCII braille bluntly redefines ASCII characters as
@@ -230,13 +228,13 @@ href="#ref-xml">XML</a>].</p>
 <p>Typically, embossers have very limited RAM and processing power, and might
 not be able to read and interpret PEF files natively. However, the PEF
 specification does not require that PEF support is implemented in the
-embosser's hardware. Support for PEF can alternatively be added to the
+embosser's hardware. Alternatively, support for PEF can be added to the
 embosser print driver or other bundled software.</p>
 
 <h3 id="Scope">Scope Limitations</h3>
 
 <p>PEF has a clear scope and there are many problems with braille production
-that PEF neither can, nor should, solve. For example, issues involving:</p>
+that PEF neither can, nor should, solve. For example issues involving:</p>
 <ul>
   <li>editing</li>
   <li>reformatting</li>
@@ -245,12 +243,13 @@ that PEF neither can, nor should, solve. For example, issues involving:</p>
   <li>reverse translation</li>
 </ul>
 
-<h3 id="Future">Future</h3>
+<h3 id="Future">Further Development</h3>
 
 <p>Currently, there is very little common ground between embossers.
-Consequently it is impossible to guarantee that page layout will be exactly
-as specified in this document. Future versions will define a minimum level of
-layout control that an embosser must support.</p>
+Consequently it is impossible to enforce an elaborate page layout without
+severly limiting the range of embossers that are able to support PEF.
+However, rendering control is a vital part of PEF and future versions will
+define a higher level of layout control that an embosser must support.</p>
 
 <h2 id="Definition">Definitions</h2>
 
@@ -336,7 +335,7 @@ are to be interpreted as described in <a href="#ref-rfc2119">RFC 2119</a>.</p>
     href="#ref-xml">XML</a>].</dd>
 </dl>
 
-<h3 id="Relationsh">Axes &amp; Node Types</h3>
+<h3 id="Relationsh">Axes and Node Types</h3>
 
 <p>The use of <dfn>axes</dfn> in this document (such as "child", "parent",
 "ancestor", "descendant") is consistent with <a
@@ -352,10 +351,10 @@ Recommendation [<a class="nref" href="#ref-xpath">XPath</a>].</p>
 
 <p>This specification is based on the specific versions of the standards and
 specifications referenced herein, which are used as defined except as noted
-by this document. Any refinement or replacement of a referenced specification
+in this document. Any refinement or replacement of a referenced specification
 by a newer or different version is not directly applicable to this standard.
 Conformance to this standard is based on the versions of the standards and
-specifications in effect at the time of this writing.</p>
+specifications in effect at the time of writing.</p>
 
 <h2 id="Normative">Definition of PEF 1.0</h2>
 
@@ -364,7 +363,7 @@ specifications in effect at the time of this writing.</p>
 <h3 id="Document"><a name="docconf" id="docconf">Document Conformance</a>
 </h3>
 
-<p>A Conforming PEF Document is an XML document that requires only the
+<p>A conforming PEF document is an XML document that requires only the
 facilities described as mandatory in this specification. Such a document must
 meet all of the following criteria:</p>
 <ol class="plain">
@@ -471,11 +470,6 @@ Inheritance</a></h3>
 applies to the element where it is specified, and to its descendants unless
 overridden by another instance of these attributes.</p>
 
-<p>The attribute value inheritance of the xml:lang attribute is consistant
-with the definition in <a
-href="http://www.w3.org/TR/xml/#sec-lang-tag">Section 2.12</a> of the XML 1.0
-Recommendation [<a class="nref" href="#ref-xml">XML</a>].</p>
-
 <h3 id="Using"><a name="Using1" id="Using1">Using PEF with Other
 Namespaces</a></h3>
 
@@ -493,8 +487,11 @@ on all platforms.</p>
 
 <p><strong>This section is informative.</strong></p>
 
-<p>The prefix <dfn>dc</dfn> is used in this section on elements in the Dublin
-Core namespace. Unprefixed elements are in the PEF namespace.</p>
+<p>Unprefixed elements are in the PEF namespace. The prefix <dfn>dc</dfn> is
+used in this section on elements in the [<a class="nref"
+href="#ref-dublincore">Dublin Core</a>] namespace.</p>
+
+<p>Elements are listed in document order.</p>
 
 <h3 id="pef">pef</h3>
 <dl>
@@ -518,15 +515,25 @@ Core namespace. Unprefixed elements are in the PEF namespace.</p>
 <h3 id="meta">meta</h3>
 <dl>
   <dt>Description</dt>
-    <dd>The meta element contains metadata information. Metadata elements as
-      per [<a class="nref" href="#ref-dublincore">Dublin Core</a>].</dd>
+    <dd>The meta element contains metadata information.</dd>
   <dt>Parent element</dt>
     <dd>head</dd>
   <dt>Child elements</dt>
     <dd>dc:format (mandatory)</dd>
     <dd>dc:identifier (mandatory)</dd>
     <dd>dc:title (optional)</dd>
-    <dd>...</dd>
+    <dd>dc:creator (optional)</dd>
+    <dd>dc:subject (optional)</dd>
+    <dd>dc:description (optional)</dd>
+    <dd>dc:publisher (optional)</dd>
+    <dd>dc:contributor (optional)</dd>
+    <dd>dc:date (optional)</dd>
+    <dd>dc:type (optional)</dd>
+    <dd>dc:source (optional)</dd>
+    <dd>dc:language (optional)</dd>
+    <dd>dc:relation (optional)</dd>
+    <dd>dc:coverage (optional)</dd>
+    <dd>dc:rights (optional)</dd>
 </dl>
 
 <h3 id="L13600">dc:format</h3>
@@ -537,16 +544,6 @@ Core namespace. Unprefixed elements are in the PEF namespace.</p>
     <dd>meta</dd>
   <dt>Value</dt>
     <dd>The string "application/x-pef+xml".</dd>
-</dl>
-
-<h3 id="L13681">dc:identifier</h3>
-<dl>
-  <dt>Description</dt>
-    <dd>An unambiguous reference to the resource within a given context.</dd>
-  <dt>Parent element</dt>
-    <dd>meta</dd>
-  <dt>Value</dt>
-    <dd>A unique identifier.</dd>
 </dl>
 
 <h3 id="body">body</h3>
@@ -599,7 +596,7 @@ Core namespace. Unprefixed elements are in the PEF namespace.</p>
   <dt>Parent element</dt>
     <dd>page</dd>
   <dt>Value</dt>
-    <dd>A string containing nothing but Unicode braille patterns.</dd>
+    <dd>A string containing Unicode braille patterns.</dd>
 </dl>
 
 <h2 id="Attributes">Attributes</h2>
@@ -610,24 +607,29 @@ Core namespace. Unprefixed elements are in the PEF namespace.</p>
 href="#Attribute">Attribute Value Inheritance</a> section.</p>
 <dl>
   <dt>cols</dt>
-    <dd>Defines the maximum number of columns that can occur on a row. One
-      column equals one braille cell.</dd>
-    <dd>This attribute is mandatory on volume elements and optional on
-      section elements.</dd>
+    <dd>Description: Defines the maximum number of columns that can occur on
+      a row. One column equals one braille cell.</dd>
+    <dd>Occurence: Mandatory on volume elements and optional on section
+      elements.</dd>
   <dt>duplex</dt>
-    <dd>Defines whether or not both sides of the sheet should be
-    embossed.</dd>
-    <dd>This attribute is mandatory on volume elements and optional on
-      section elements.</dd>
+    <dd>Description: Defines whether or not both sides of the sheet should be
+      embossed.</dd>
+    <dd>Occurence: Mandatory on volume elements and optional on section
+      elements.</dd>
   <dt>rowgap</dt>
-    <dd>Defines the size of the gap following a row. This value should be 0
-      or more for 6-dot braille and 1 or more for 8-dot braille.</dd>
-    <dd>This attribute is mandatory on volume elements and optional on
-      section and page elements.</dd>
+    <dd>Description: Defines the size of the gap following a row. This value
+      should be 0 or more for 6-dot braille and 1 or more for 8-dot
+    braille.</dd>
+    <dd>Occurence: Mandatory on volume elements and optional on section and
+      page elements.</dd>
   <dt>rows</dt>
-    <dd>Defines the maximum number of rows that can occur on a page.</dd>
-    <dd>This attribute is mandatory on volume elements and optional on
-      section elements.</dd>
+    <dd>Description: Defines the maximum number of rows that can occur on a
+      page.</dd>
+    <dd>Occurence: Mandatory on volume elements and optional on section
+      elements.</dd>
+  <dt>version</dt>
+    <dd>Description: Defines the pef version.<br />
+      Occurence: Mandatory on pef elements.</dd>
 </dl>
 
 <h2 id="Error1">Metadata Extension</h2>
@@ -691,7 +693,7 @@ behaviour is acceptable under the following circumstances:</p>
         <li>ignore the unsupported braille patterns (rows will be
         shortened)</li>
         <li>replace the unsupported braille patterns with a fixed
-          replacement, e.g. 2800 (empty cell) or 283F (full cell).</li>
+          replacement, e.g. 2800 (empty cell) or 283F (full 6-dot cell)</li>
         <li>trim the unsupported braille patterns by ignoring dots 7 and 8,
           e.g. by bit masking the code point with 283F.</li>
       </ol>
@@ -706,7 +708,7 @@ the rendering implications.</p>
 <p>The rule sets mentioned below are included in the <a
 href="pef-2008-1.zip">zip file</a> for this specification. Users looking for
 local copies of the rule sets to work with should download and use this
-archive rather than using the specific reference below.</p>
+archive rather than using the specific references below.</p>
 
 <h3 id="Relax">Relax NG</h3>
 
