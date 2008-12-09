@@ -19,7 +19,7 @@
 <body>
 <h1>PEF 1.0 - Portable Embosser Format</h1>
 
-<p>Working draft, revised 8 December 2008</p>
+<p>Working draft, revised 9 December 2008</p>
 <dl>
   <dt><a id="thisVersion" name="thisVersion">This version</a>:</dt>
     <dd><a
@@ -450,25 +450,31 @@ meet all of the following criteria:</p>
 <h3 id="Error">Rendering Definitions</h3>
 <dl>
   <dt>Dot-to-dot height</dt>
-    <dd>The vertical distance between dot centers within a Braille cell.</dd>
+    <dd>The vertical distance between dot centers within a Braille cell. See
+      also <dfn>Figure 1</dfn>.</dd>
   <dt>Page alignment</dt>
     <dd>Pages align to the top-left corner of the embosseble area of a
     sheet.</dd>
   <dt>Row height</dt>
     <dd>Row height, excluding row gap, is four times the dot-to-dot height,
       regardless of whether the user agent supports Unicode character range
-      2840-28FF or not.</dd>
+      2840-28FF or not. See also <dfn>Figure 1</dfn>.</dd>
   <dt>Row gap</dt>
     <dd>Row gap is rendered below the row it is associated with. Row gap is
-      expressed as an integer multiple of the dot-to-dot height.</dd>
+      expressed as an integer multiple of the dot-to-dot height. See also
+      <dfn>Figure 1</dfn>.</dd>
   <dt>Sections</dt>
     <dd>A section always starts on a blank sheet of paper. The reason for
       this is that a change from duplex to simplex or vice-versa can't be
       accurately effectuated unless the sheet is blank.</dd>
 </dl>
 
-<p><img alt="Schematic illustration of rendering definitions"
+<p><img
+alt="Figure 1. Schematic illustration of dot-to-dot height, row height and row gap."
 src="images/rendering.jpg" width="381" height="356" /></p>
+
+<p><span class="image-caption">Figure 1. Schematic illustration of dot-to-dot
+height, row height and row gap.</span></p>
 
 <h3 id="Attributes">Attributes</h3>
 
@@ -802,7 +808,8 @@ href="#ref-dublincore">Dublin Core</a>].</p>
 <dl>
   <dt>[Example PEF document: Om våren]</dt>
     <dd>"<a href="examples/poem.pef">examples/poem.pef</a>". A poem by the
-      Swedish poet Nils Ferlin called "Om våren" (the text is in Swedish).
+      Swedish poet Nils Ferlin called "Om våren" (the text is in
+      Swedish).<br />
       Accessibility note: The Unicode braille patterns in this file may not
       display with JAWS or braille display.</dd>
   <dt>[Example PEF document: Butterfly Test Pattern]</dt>
