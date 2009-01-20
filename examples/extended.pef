@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pef version="2008-1" xmlns="http://www.daisy.org/ns/2008/pef" xmlns:ext="http://www.example.org/my-pef-extensions" ext:version="1">
+	<head>
+		<meta xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:org="http://www.example.org">
+			<dc:title>Extending PEF</dc:title>
+			<dc:creator>Joel Håkansson</dc:creator>
+			<dc:date>2009-01-20</dc:date>
+			<dc:format>application/x-pef+xml</dc:format>
+			<dc:identifier>org.pef.00004</dc:identifier>
+			<dc:description>Demonstrates how a PEF-file can be extended.</dc:description>
+			<org:paper-size value="A4"/>
+			<org:grade value="1"/>
+			<org:margin-top value="5cm"/>
+			<org:margin-left value="2cm"/>
+			<org:binding content="coil"/>
+		</meta>
+	</head>
+	<body xml:lang="en">
+		<annotation xmlns="http://www.example.org/my-pef-extensions" style="default.css">
+			<p>This is an <b>extended</b> <dfn>PEF</dfn> 1.0 example. It demonstrates how a PEF-file can be extended.</p>
+		</annotation>
+		<volume cols="16" rows="8" rowgap="0" duplex="true">
+			<ext:volume-label>
+				<ext:row>⠀⠀⠁⠀⠂⠀⠃⠀⠄⠀⠅⠀⠆⠀⠇⠀</ext:row>
+				<ext:row>⠈⠀⠉⠀⠊⠀⠋⠀⠌⠀⠍⠀⠎⠀⠏⠀</ext:row>
+				<ext:row>⠐⠀⠑⠀⠒⠀⠓⠀⠔⠀⠕⠀⠖⠀⠗⠀</ext:row>				
+			</ext:volume-label>
+			<section ext:section-type="toc">
+				<page ext:page-number="i">
+					<row>⠀⠀⠁⠀⠂⠀⠃⠀⠄⠀⠅⠀⠆⠀⠇⠀</row>
+					<row>⠈⠀⠉⠀⠊⠀⠋⠀⠌⠀⠍⠀⠎⠀⠏⠀</row>
+					<row>⠐⠀⠑⠀⠒⠀⠓⠀⠔⠀⠕⠀⠖⠀⠗⠀</row>
+					<row>⠘⠀⠙⠀⠚⠀⠛⠀⠜⠀⠝⠀⠞⠀⠟⠀</row>
+					<row>⠠⠀⠡⠀⠢⠀⠣⠀⠤⠀⠥⠀⠦⠀⠧⠀</row>
+					<row>⠨⠀⠩⠀⠪⠀⠫⠀⠬⠀⠭⠀⠮⠀⠯⠀</row>
+					<row>⠰⠀⠱⠀⠲⠀⠳⠀⠴⠀⠵⠀⠶⠀⠷⠀</row>
+					<row>⠸⠀⠹⠀⠺⠀⠻⠀⠼⠀⠽⠀⠾⠀⠿⠀</row>
+				</page>
+			</section>
+			<section>
+				<page ext:page-number="1">
+					<row ext:row-type="header">⠀⠀⠁⠀⠂⠀⠃⠀⠄⠀⠅⠀⠆⠀⠇⠀</row>
+					<ext:new-para type="heading" text="  A 1 B ' K 2 L"/>
+					<row>⠈⠀⠉⠀⠊⠀⠋⠀⠌⠀⠍⠀⠎⠀⠏⠀</row>
+					<ext:new-para type="p" text="@ C I F / M S P &quot; E 3 H 9 O 6 R ^ D J G > N T Q , * 5 &lt; - U 8 V . % [ $ + X ! &amp; ; : 4 \ 0 Z 7 ( _ ? W ] # Y ) ="/>
+					<row>⠐⠀⠑⠀⠒⠀⠓⠀⠔⠀⠕⠀⠖⠀⠗⠀</row>
+					<row>⠘⠀⠙⠀⠚⠀⠛⠀⠜⠀⠝⠀⠞⠀⠟⠀</row>
+					<row>⠠⠀⠡⠀⠢⠀⠣⠀⠤⠀⠥⠀⠦⠀⠧⠀</row>
+					<row>⠨⠀⠩⠀⠪⠀⠫⠀⠬⠀⠭⠀⠮⠀⠯⠀</row>
+					<row>⠰⠀⠱⠀⠲⠀⠳⠀⠴⠀⠵⠀⠶⠀⠷⠀</row>
+					<row>⠸⠀⠹⠀⠺⠀⠻⠀⠼⠀⠽⠀⠾⠀⠿⠀</row>
+					<ext:new-para type="p"/>
+					<row>⠀⠀⠁⠀⠂⠀⠃⠀⠄⠀⠅⠀⠆⠀⠇⠀</row>
+					<row>⠈⠀⠉⠀⠊⠀⠋⠀⠌⠀⠍⠀⠎⠀⠏⠀</row>
+					<row>⠐⠀⠑⠀⠒⠀⠓⠀⠔⠀⠕⠀⠖⠀⠗⠀</row>
+					<row>⠘⠀⠙⠀⠚⠀⠛⠀⠜⠀⠝⠀⠞⠀⠟⠀</row>
+					<row>⠠⠀⠡⠀⠢⠀⠣⠀⠤⠀⠥⠀⠦⠀⠧⠀</row>
+					<row>⠨⠀⠩⠀⠪⠀⠫⠀⠬⠀⠭⠀⠮⠀⠯⠀</row>
+					<row>⠰⠀⠱⠀⠲⠀⠳⠀⠴⠀⠵⠀⠶⠀⠷⠀</row>
+					<row ext:row-type="footer">⠸⠀⠹⠀⠺⠀⠻⠀⠼⠀⠽⠀⠾⠀⠿⠀</row>
+				</page>
+			</section>
+			<section>
+				<page ext:page-number="A">
+					<ext:tactile-image src="map.svg"/>
+				</page>
+			</section>
+		</volume>
+	</body>
+</pef>

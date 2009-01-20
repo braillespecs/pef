@@ -18,7 +18,7 @@
 	<body>
 		<volume cols="30" rows="29" rowgap="0" duplex="true">
 			<section>
-				<page number="1">
+				<page>
 					<row/>
 					<row/>
 					<row/>
