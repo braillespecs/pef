@@ -8,7 +8,7 @@
 
 	<a:documentation>
 		RELAX NG schema for PEF 1.0 - Portable Embosser Format
-		Working Draft 19 January 2009
+		Public Draft 12 February 2009
 		Authors: Joel Håkansson, Piotr Kiernicki, Linus Ericson
 	</a:documentation>
 
@@ -99,14 +99,14 @@
 						<ref name="datatype.string"/>
 					</element>
 				</optional>
-				<optional>
+				<zeroOrMore>
 					<element name="dc:publisher">
 						<zeroOrMore>
 							<ref name="attribute.anyExceptDefault"/>
 						</zeroOrMore>
 						<ref name="datatype.string"/>
 					</element>
-				</optional>
+				</zeroOrMore>
 				<zeroOrMore>
 					<element name="dc:contributor">
 						<zeroOrMore>
@@ -123,14 +123,14 @@
 						<ref name="datatype.iso8601.yyyyMmDd"/>
 					</element>
 				</optional>
-				<optional>
+				<zeroOrMore>
 					<element name="dc:type">
 						<zeroOrMore>
 							<ref name="attribute.anyExceptDefault"/>
 						</zeroOrMore>
 						<ref name="datatype.string"/>
 					</element>
-				</optional>
+				</zeroOrMore>
 				<zeroOrMore>
 					<element name="dc:source">
 						<zeroOrMore>

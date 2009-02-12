@@ -50,7 +50,7 @@ Contents</h2>
 
 <div class="toc">
 <ul>
-  <li><a href="#Introducti">Introduction</a>
+  <li><a href="#Introducti">Introduction</a> 
     <ul>
       <li><a href="#What">What is PEF?</a></li>
       <li><a href="#there">Why is PEF Necessary?</a></li>
@@ -63,7 +63,7 @@ Contents</h2>
       <li><a href="#Future">Further Development</a></li>
     </ul>
   </li>
-  <li><a href="#Definition">Definitions</a>
+  <li><a href="#Definition">Definitions</a> 
     <ul>
       <li><a href="#Terminolog">Terminology</a></li>
       <li><a href="#General">General Terms</a></li>
@@ -72,10 +72,10 @@ Contents</h2>
       Specifications</a></li>
     </ul>
   </li>
-  <li><a href="#Normative">Definition of PEF 1.0</a>
+  <li><a href="#Normative">Definition of PEF 1.0</a> 
     <ul>
       <li><a href="#Document">Document Conformance </a></li>
-      <li><a href="#User">User Agent Conformance</a>
+      <li><a href="#User">User Agent Conformance</a> 
         <ul>
           <li><a href="#Processing">Processing Unknown Content</a></li>
         </ul>
@@ -86,7 +86,7 @@ Contents</h2>
       <li><a href="#Internet">Internet Media Type and File Extension</a></li>
     </ul>
   </li>
-  <li><a href="#Elements">Elements</a>
+  <li><a href="#Elements">Elements</a> 
     <ul>
       <li><a href="#pef">pef</a></li>
       <li><a href="#head">head</a></li>
@@ -101,13 +101,13 @@ Contents</h2>
   </li>
   <li><a href="#Error1">Metadata Extension</a></li>
   <li><a href="#Error11">Error Handling</a></li>
-  <li><a href="#Rule">Rule Sets</a>
+  <li><a href="#Rule">Rule Sets</a> 
     <ul>
       <li><a href="#Relax">Relax NG Rule Set</a></li>
       <li><a href="#Schema1">DTD Rule Set</a></li>
     </ul>
   </li>
-  <li><a href="#References">References</a>
+  <li><a href="#References">References</a> 
     <ul>
       <li><a href="#Normative1">Normative References</a></li>
       <li><a href="#Informativ">Informative References</a></li>
@@ -420,7 +420,7 @@ processes unknown content:</p>
 <ol>
   <li>If the unknown contents is an element, all node children, except text
     node children, must be processed. Using XPath in the context of the
-    unknown element, this can be expressed as:
+    unknown element, this can be expressed as: 
     <p><code>node()[not(self::text())]</code></p>
     <p>For example, a user agent should read</p>
     <p><samp xml:space="preserve">...</samp><br />
@@ -578,18 +578,18 @@ namespace.</p>
     <dd>dc:format (mandatory)</dd>
     <dd>dc:identifier (mandatory)</dd>
     <dd>dc:title (optional)</dd>
-    <dd>dc:creator (optional)</dd>
-    <dd>dc:subject (optional)</dd>
+    <dd>dc:creator (zero or more)</dd>
+    <dd>dc:subject (zero or more)</dd>
     <dd>dc:description (optional)</dd>
-    <dd>dc:publisher (optional)</dd>
-    <dd>dc:contributor (optional)</dd>
+    <dd>dc:publisher (zero or more)</dd>
+    <dd>dc:contributor (zero or more)</dd>
     <dd>dc:date (optional)</dd>
-    <dd>dc:type (optional)</dd>
-    <dd>dc:source (optional)</dd>
-    <dd>dc:language (optional)</dd>
-    <dd>dc:relation (optional)</dd>
-    <dd>dc:coverage (optional)</dd>
-    <dd>dc:rights (optional)</dd>
+    <dd>dc:type (zero or more)</dd>
+    <dd>dc:source (zero or more)</dd>
+    <dd>dc:language (zero or more)</dd>
+    <dd>dc:relation (zero or more)</dd>
+    <dd>dc:coverage (zero or more)</dd>
+    <dd>dc:rights (zero or more)</dd>
 </dl>
 
 <h3 id="L13600">dc:format</h3>
