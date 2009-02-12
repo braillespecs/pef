@@ -19,7 +19,7 @@
 <body>
 <h1>PEF 1.0 - Portable Embosser Format</h1>
 
-<p>Working draft, revised 9 December 2008</p>
+<p>Public draft, revised 12 February 2009</p>
 <dl>
   <dt><a id="thisVersion" name="thisVersion">This version</a>:</dt>
     <dd><a
@@ -43,14 +43,14 @@ application.</p>
 <h2 id="Status"><a class="mozTocH2" name="mozTocId427116"></a>Status of this
 Document</h2>
 
-<p>This document is a working draft.</p>
+<p>This document is a public draft.</p>
 
 <h2 id="Table"><a class="mozTocH2" name="mozTocId469583"></a>Table of
 Contents</h2>
 
 <div class="toc">
 <ul>
-  <li><a href="#Introducti">Introduction</a> 
+  <li><a href="#Introducti">Introduction</a>
     <ul>
       <li><a href="#What">What is PEF?</a></li>
       <li><a href="#there">Why is PEF Necessary?</a></li>
@@ -63,7 +63,7 @@ Contents</h2>
       <li><a href="#Future">Further Development</a></li>
     </ul>
   </li>
-  <li><a href="#Definition">Definitions</a> 
+  <li><a href="#Definition">Definitions</a>
     <ul>
       <li><a href="#Terminolog">Terminology</a></li>
       <li><a href="#General">General Terms</a></li>
@@ -72,17 +72,21 @@ Contents</h2>
       Specifications</a></li>
     </ul>
   </li>
-  <li><a href="#Normative">Definition of PEF 1.0</a> 
+  <li><a href="#Normative">Definition of PEF 1.0</a>
     <ul>
       <li><a href="#Document">Document Conformance </a></li>
-      <li><a href="#User">User Agent Conformance</a></li>
+      <li><a href="#User">User Agent Conformance</a>
+        <ul>
+          <li><a href="#Processing">Processing Unknown Content</a></li>
+        </ul>
+      </li>
       <li><a href="#Error">Rendering Definitions</a></li>
       <li><a href="#Attributes">Attributes</a></li>
       <li><a href="#Using">Using PEF with Other Namespaces</a></li>
       <li><a href="#Internet">Internet Media Type and File Extension</a></li>
     </ul>
   </li>
-  <li><a href="#Elements">Elements</a> 
+  <li><a href="#Elements">Elements</a>
     <ul>
       <li><a href="#pef">pef</a></li>
       <li><a href="#head">head</a></li>
@@ -97,13 +101,13 @@ Contents</h2>
   </li>
   <li><a href="#Error1">Metadata Extension</a></li>
   <li><a href="#Error11">Error Handling</a></li>
-  <li><a href="#Rule">Rule Sets</a> 
+  <li><a href="#Rule">Rule Sets</a>
     <ul>
-      <li><a href="#Relax">Relax NG</a></li>
-      <li><a href="#Schema1">XML Schemas and DTD Rule Sets</a></li>
+      <li><a href="#Relax">Relax NG Rule Set</a></li>
+      <li><a href="#Schema1">DTD Rule Set</a></li>
     </ul>
   </li>
-  <li><a href="#References">References</a> 
+  <li><a href="#References">References</a>
     <ul>
       <li><a href="#Normative1">Normative References</a></li>
       <li><a href="#Informativ">Informative References</a></li>
@@ -398,9 +402,27 @@ meet all of the following criteria:</p>
     specification or required by this specification through normative
     reference, it must do so in ways consistent with the facilities'
     definition.</li>
-  <li>If a user agent encounters an element it does not recognize, it must
-    process the element's child nodes, except its text node children. For
-    example, a user agent should read 
+</ol>
+
+<p>A conforming user agent is recommended to meet the following criteria:</p>
+<ol>
+  <li>The user agent is recommended to support Unicode character range
+    2840-28FF.</li>
+  <li>The user agent is recommended to support UTF-16 encoding.</li>
+</ol>
+
+<h4 id="Processing">Processing Unknown Content</h4>
+
+<p>Since the PEF rule set allows content for which this specification has no
+definition, user agents must be prepared to process content whose semantics
+are unknown (apart from node type). The following applies when a user agent
+processes unknown content:</p>
+<ol>
+  <li>If the unknown contents is an element, all node children, except text
+    node children, must be processed. Using XPath in the context of the
+    unknown element, this can be expressed as:
+    <p><code>node()[not(self::text())]</code></p>
+    <p>For example, a user agent should read</p>
     <p><samp xml:space="preserve">...</samp><br />
     <samp xml:space="preserve">&lt;pef:page xmlns:pef="http://www.daisy.org/ns/2008/pef"&gt;</samp><br
     />
@@ -429,22 +451,11 @@ meet all of the following criteria:</p>
     />
     <samp xml:space="preserve">&lt;/pef:page&gt;</samp><br />
     <samp xml:space="preserve">...</samp></p>
-    <p>if the namespace associated with the <dfn>ext</dfn> prefix is unknown
-    to the user agent. Note that the annotation text was not read.</p>
+    <p>Note that the annotation text was not read since it is a text node
+    child to an unknown element.</p>
   </li>
-  <li>If a user agent encounters an attribute it does not recognize, it must
-    ignore the entire attribute specification (i.e., the attribute and its
-    value).</li>
-  <li>If a user agent encounters an attribute value it does not recognize, it
-    must ignore the entire attribute specification (i.e., the attribute and
-    its value).</li>
-</ol>
-
-<p>A conforming user agent is recommended to meet the following criteria:</p>
-<ol>
-  <li>The user agent is recommended to support Unicode character range
-    2840-28FF.</li>
-  <li>The user agent is recommended to support UTF-16 encoding.</li>
+  <li>If an attribute or its value is unknown, the entire attribute
+    specification (i.e., the attribute and its value) must be ignored.</li>
 </ol>
 
 <h3 id="Error">Rendering Definitions</h3>
@@ -533,11 +544,10 @@ on all platforms.</p>
 
 <p><strong>This section is informative.</strong></p>
 
-<p>Unprefixed elements are in the PEF namespace. The prefix <dfn>dc</dfn> is
-used in this section on elements in the [<a class="nref"
-href="#ref-dublincore">Dublin Core</a>] namespace.</p>
-
-<p>Elements are listed in document order.</p>
+<p>Elements are listed in document order. In this listing, unprefixed
+elements are in the PEF namespace and the prefix <dfn>dc</dfn> is used on
+elements in the [<a class="nref" href="#ref-dublincore">Dublin Core</a>]
+namespace.</p>
 
 <h3 id="pef">pef</h3>
 <dl>
@@ -686,9 +696,10 @@ cases, a faulty conversion will render an asymmetrical pattern.</samp><br />
 
 <p><strong>This section is normative.</strong></p>
 
-<p>If a user agent encounters a document that it is unable to process must
-inform the user and abort. However, because of embosser limitations, fallback
-behaviour is acceptable under the following circumstances:</p>
+<p>If a user agent encounters a document that it is unable to process the
+user agent must inform the user and abort. However, because of embosser
+limitations, fallback behaviour is acceptable under the following
+circumstances:</p>
 <dl>
   <dt>The user agent cannot set row gap to the specified value</dt>
     <dd>The user agent may choose the closest possible smaller or larger
@@ -722,27 +733,23 @@ href="pef-2008-1.zip">zip file</a> for this specification. Users looking for
 local copies of the rule sets to work with should download and use this
 archive rather than using the specific references below.</p>
 
-<h3 id="Relax"><a name="Relax1" id="Relax1">Relax NG</a></h3>
+<h3 id="Relax"><a name="Relax1" id="Relax1">Relax NG Rule Set</a></h3>
 
-<p><strong>This section is normative.</strong> </p>
+<p><strong>This section is normative.</strong></p>
 
 <p>The Relax NG rule set "<a
 href="validation/pef-2008-1.rng">validation/pef-2008-1.rng</a>" forms a
-normative part of this specification. It defines the data model for the PEF
-and Dublin Core namespace. Other namespaces must be filtered out before
-evaluating against this rule set.</p>
+normative part of this specification.</p>
 
-<h3 id="Schema1">XML Schemas and DTD Rule Sets</h3>
+<h3 id="Schema1">DTD Rule Set</h3>
 
 <p><strong>This section is informative.</strong></p>
 
-<p>The Dublin Core XML Schema "<a
-href="validation/dc.xsd">validation/dc.xsd</a>", the PEF XML Schema <a
-href="validation/pef-2008-1.xsd">"validation/pef-2008-1.xsd</a>" and the PEF
-DTD "<a href="validation/pef-2008-1.dtd">validation/pef-2008-1.dtd</a>" rule
-sets form an informative part of this specification. They are provided for
-compatibility reasons but they do not include all the normative restrictions
-and features enforced by the Relax NG rule set.</p>
+<p>The DTD rule set "<a
+href="validation/pef-2008-1.dtd">validation/pef-2008-1.dtd</a>" forms an
+informative part of this specification. It is provided for compatibility
+reasons but do not include all the normative restrictions and features
+enforced by the Relax NG rule set.</p>
 
 <p>The Dublin Core specification is maintained by [<a class="nref"
 href="#ref-dublincore">Dublin Core</a>].</p>
