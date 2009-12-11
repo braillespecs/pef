@@ -15,10 +15,10 @@
 		</meta>
 	</head>
 	<body>
-		<volume cols="30" rows="29" rowgap="0" duplex="true">
+		<volume cols="32" rows="29" rowgap="0" duplex="true">
 			<section>
 				<page>
-					<row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁</row>
+					<row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁</row>
 					<row>⠀⠠⠙⠑⠞⠀⠎⠊⠞⠞⠑⠗⠀⠑⠝⠀⠛⠥⠍⠍⠁⠀⠍⠑⠙</row>
 					<row>⠀⠃⠇⠕⠍⠍⠕⠗⠀⠌⠀⠏⠡⠀⠓⠥⠅⠀⠊⠀⠑⠝⠀⠛⠁⠞⠥⠧⠗⠡</row>
 					<row>⠀⠤⠤⠀⠌⠀⠕⠉⠓⠀⠛⠗⠕⠎⠎⠓⠁⠝⠙⠇⠁⠗⠀⠠⠃⠑⠗⠛⠤</row>

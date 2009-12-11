@@ -19,45 +19,45 @@
 		<annotation xmlns="http://www.example.org/my-pef-extensions" style="default.css">
 			<p>This is an <b>extended</b> <dfn>PEF</dfn> 1.0 example. It demonstrates how a PEF-file can be extended.</p>
 		</annotation>
-		<volume cols="16" rows="8" rowgap="0" duplex="true">
+		<volume cols="20" rows="29" rowgap="0" duplex="true">
 			<ext:volume-label>
-				<ext:row>⠀⠀⠁⠀⠂⠀⠃⠀⠄⠀⠅⠀⠆⠀⠇⠀</ext:row>
-				<ext:row>⠈⠀⠉⠀⠊⠀⠋⠀⠌⠀⠍⠀⠎⠀⠏⠀</ext:row>
-				<ext:row>⠐⠀⠑⠀⠒⠀⠓⠀⠔⠀⠕⠀⠖⠀⠗⠀</ext:row>				
+				<ext:row>⠀⠀⠀⠀⠁⠀⠂⠀⠃⠀⠄⠀⠅⠀⠆⠀⠇⠀</ext:row>
+				<ext:row>⠀⠀⠈⠀⠉⠀⠊⠀⠋⠀⠌⠀⠍⠀⠎⠀⠏⠀</ext:row>
+				<ext:row>⠀⠀⠐⠀⠑⠀⠒⠀⠓⠀⠔⠀⠕⠀⠖⠀⠗⠀</ext:row>				
 			</ext:volume-label>
 			<section ext:section-type="toc">
 				<page ext:page-number="i">
-					<row>⠀⠀⠁⠀⠂⠀⠃⠀⠄⠀⠅⠀⠆⠀⠇⠀</row>
-					<row>⠈⠀⠉⠀⠊⠀⠋⠀⠌⠀⠍⠀⠎⠀⠏⠀</row>
-					<row>⠐⠀⠑⠀⠒⠀⠓⠀⠔⠀⠕⠀⠖⠀⠗⠀</row>
-					<row>⠘⠀⠙⠀⠚⠀⠛⠀⠜⠀⠝⠀⠞⠀⠟⠀</row>
-					<row>⠠⠀⠡⠀⠢⠀⠣⠀⠤⠀⠥⠀⠦⠀⠧⠀</row>
-					<row>⠨⠀⠩⠀⠪⠀⠫⠀⠬⠀⠭⠀⠮⠀⠯⠀</row>
-					<row>⠰⠀⠱⠀⠲⠀⠳⠀⠴⠀⠵⠀⠶⠀⠷⠀</row>
-					<row>⠸⠀⠹⠀⠺⠀⠻⠀⠼⠀⠽⠀⠾⠀⠿⠀</row>
+					<row>⠀⠀⠀⠀⠁⠀⠂⠀⠃⠀⠄⠀⠅⠀⠆⠀⠇⠀</row>
+					<row>⠀⠀⠈⠀⠉⠀⠊⠀⠋⠀⠌⠀⠍⠀⠎⠀⠏⠀</row>
+					<row>⠀⠀⠐⠀⠑⠀⠒⠀⠓⠀⠔⠀⠕⠀⠖⠀⠗⠀</row>
+					<row>⠀⠀⠘⠀⠙⠀⠚⠀⠛⠀⠜⠀⠝⠀⠞⠀⠟⠀</row>
+					<row>⠀⠀⠠⠀⠡⠀⠢⠀⠣⠀⠤⠀⠥⠀⠦⠀⠧⠀</row>
+					<row>⠀⠀⠨⠀⠩⠀⠪⠀⠫⠀⠬⠀⠭⠀⠮⠀⠯⠀</row>
+					<row>⠀⠀⠰⠀⠱⠀⠲⠀⠳⠀⠴⠀⠵⠀⠶⠀⠷⠀</row>
+					<row>⠀⠀⠸⠀⠹⠀⠺⠀⠻⠀⠼⠀⠽⠀⠾⠀⠿⠀</row>
 				</page>
 			</section>
 			<section>
 				<page ext:page-number="1">
-					<row ext:row-type="header">⠀⠀⠁⠀⠂⠀⠃⠀⠄⠀⠅⠀⠆⠀⠇⠀</row>
+					<row ext:row-type="header">⠀⠀⠀⠀⠁⠀⠂⠀⠃⠀⠄⠀⠅⠀⠆⠀⠇⠀</row>
 					<ext:new-para type="heading" text="  A 1 B ' K 2 L"/>
-					<row>⠈⠀⠉⠀⠊⠀⠋⠀⠌⠀⠍⠀⠎⠀⠏⠀</row>
+					<row>⠀⠀⠈⠀⠉⠀⠊⠀⠋⠀⠌⠀⠍⠀⠎⠀⠏⠀</row>
 					<ext:new-para type="p" text="@ C I F / M S P &quot; E 3 H 9 O 6 R ^ D J G > N T Q , * 5 &lt; - U 8 V . % [ $ + X ! &amp; ; : 4 \ 0 Z 7 ( _ ? W ] # Y ) ="/>
-					<row>⠐⠀⠑⠀⠒⠀⠓⠀⠔⠀⠕⠀⠖⠀⠗⠀</row>
-					<row>⠘⠀⠙⠀⠚⠀⠛⠀⠜⠀⠝⠀⠞⠀⠟⠀</row>
-					<row>⠠⠀⠡⠀⠢⠀⠣⠀⠤⠀⠥⠀⠦⠀⠧⠀</row>
-					<row>⠨⠀⠩⠀⠪⠀⠫⠀⠬⠀⠭⠀⠮⠀⠯⠀</row>
-					<row>⠰⠀⠱⠀⠲⠀⠳⠀⠴⠀⠵⠀⠶⠀⠷⠀</row>
-					<row>⠸⠀⠹⠀⠺⠀⠻⠀⠼⠀⠽⠀⠾⠀⠿⠀</row>
+					<row>⠀⠀⠐⠀⠑⠀⠒⠀⠓⠀⠔⠀⠕⠀⠖⠀⠗⠀</row>
+					<row>⠀⠀⠘⠀⠙⠀⠚⠀⠛⠀⠜⠀⠝⠀⠞⠀⠟⠀</row>
+					<row>⠀⠀⠠⠀⠡⠀⠢⠀⠣⠀⠤⠀⠥⠀⠦⠀⠧⠀</row>
+					<row>⠀⠀⠨⠀⠩⠀⠪⠀⠫⠀⠬⠀⠭⠀⠮⠀⠯⠀</row>
+					<row>⠀⠀⠰⠀⠱⠀⠲⠀⠳⠀⠴⠀⠵⠀⠶⠀⠷⠀</row>
+					<row>⠀⠀⠸⠀⠹⠀⠺⠀⠻⠀⠼⠀⠽⠀⠾⠀⠿⠀</row>
 					<ext:new-para type="p"/>
-					<row>⠀⠀⠁⠀⠂⠀⠃⠀⠄⠀⠅⠀⠆⠀⠇⠀</row>
-					<row>⠈⠀⠉⠀⠊⠀⠋⠀⠌⠀⠍⠀⠎⠀⠏⠀</row>
-					<row>⠐⠀⠑⠀⠒⠀⠓⠀⠔⠀⠕⠀⠖⠀⠗⠀</row>
-					<row>⠘⠀⠙⠀⠚⠀⠛⠀⠜⠀⠝⠀⠞⠀⠟⠀</row>
-					<row>⠠⠀⠡⠀⠢⠀⠣⠀⠤⠀⠥⠀⠦⠀⠧⠀</row>
-					<row>⠨⠀⠩⠀⠪⠀⠫⠀⠬⠀⠭⠀⠮⠀⠯⠀</row>
-					<row>⠰⠀⠱⠀⠲⠀⠳⠀⠴⠀⠵⠀⠶⠀⠷⠀</row>
-					<row ext:row-type="footer">⠸⠀⠹⠀⠺⠀⠻⠀⠼⠀⠽⠀⠾⠀⠿⠀</row>
+					<row>⠀⠀⠀⠀⠁⠀⠂⠀⠃⠀⠄⠀⠅⠀⠆⠀⠇⠀</row>
+					<row>⠀⠀⠈⠀⠉⠀⠊⠀⠋⠀⠌⠀⠍⠀⠎⠀⠏⠀</row>
+					<row>⠀⠀⠐⠀⠑⠀⠒⠀⠓⠀⠔⠀⠕⠀⠖⠀⠗⠀</row>
+					<row>⠀⠀⠘⠀⠙⠀⠚⠀⠛⠀⠜⠀⠝⠀⠞⠀⠟⠀</row>
+					<row>⠀⠀⠠⠀⠡⠀⠢⠀⠣⠀⠤⠀⠥⠀⠦⠀⠧⠀</row>
+					<row>⠀⠀⠨⠀⠩⠀⠪⠀⠫⠀⠬⠀⠭⠀⠮⠀⠯⠀</row>
+					<row>⠀⠀⠰⠀⠱⠀⠲⠀⠳⠀⠴⠀⠵⠀⠶⠀⠷⠀</row>
+					<row ext:row-type="footer">⠀⠀⠸⠀⠹⠀⠺⠀⠻⠀⠼⠀⠽⠀⠾⠀⠿⠀</row>
 				</page>
 			</section>
 			<section>
