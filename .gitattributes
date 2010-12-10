@@ -1,5 +1,6 @@
 * text=auto !eol
 examples/6-dot-chart.pef -text svneol=unset#application/octet-stream
+examples/8-dot-chart.pef -text
 examples/butterfly.pef -text svneol=unset#application/octet-stream
 examples/extended.pef -text svneol=unset#application/octet-stream
 examples/poem.pef -text svneol=unset#application/octet-stream
