@@ -6,4 +6,7 @@ examples/extended.pef -text svneol=unset#application/octet-stream
 examples/poem.pef -text svneol=unset#application/octet-stream
 images/rendering.ai -text svneol=unset#application/octet-stream
 images/rendering.jpg -text
+validation/pef-2008-1.nvdl -text
 validation/pef-2008-1.rng -text svneol=unset#application/octet-stream
+validation/pef-2008-1.sch -text
+validation/pef-2008-1.xpl -text
