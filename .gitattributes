@@ -1,12 +1,24 @@
-* text=auto !eol
-examples/6-dot-chart.pef -text svneol=unset#application/octet-stream
-examples/8-dot-chart.pef -text
-examples/butterfly.pef -text svneol=unset#application/octet-stream
-examples/extended.pef -text svneol=unset#application/octet-stream
-examples/poem.pef -text svneol=unset#application/octet-stream
-images/rendering.ai -text svneol=unset#application/octet-stream
-images/rendering.jpg -text
-validation/pef-2008-1.nvdl -text
-validation/pef-2008-1.rng -text svneol=unset#application/octet-stream
-validation/pef-2008-1.sch -text
-validation/pef-2008-1.xpl -text
+# Handle line endings automatically for files detected as text
+# and leave all files detected as binary untouched.
+* text=auto
+
+#
+# The above will handle all files NOT found below
+#
+# These files are text and should be normalized (Convert crlf => lf)
+*.css		text
+*.dtd		text
+*.htm		text
+*.html		text
+*.md		text
+*.nvdl		text
+*.pef		text
+*.project	text
+*.rng		text
+*.sch		text
+*.xpl		text
+
+# These files are binary and should be left untouched
+# (binary is a macro for -text -diff)
+*.jpg		binary
+*.ai		binary
