@@ -1,0 +1,26 @@
+apply plugin: 'base'
+defaultTasks 'buildSite'
+
+task copyTask(type: Copy) {
+	dependsOn(clean)
+	from 'src'
+	into 'build/tmp'
+	include '**/*.*'
+}
+
+task zip(type: Zip) {
+	dependsOn(copyTask)
+    from 'build/tmp'
+    baseName 'pef-2008-1'
+}
+
+task buildSite(type: Copy) {
+	dependsOn(zip)
+	from 'build/distributions'
+	from 'build/tmp'
+	into 'build/site'
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '2.8'
+}
