@@ -1,0 +1,2 @@
+script: ./gradlew buildSite
+after_success: ./build-resources/publish.sh
