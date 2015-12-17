@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/joeha480/pef-format.svg?branch=master)](https://travis-ci.org/joeha480/pef-format)
+[![Build Status](https://travis-ci.org/braillespecs/pef.svg)](https://travis-ci.org/braillespecs/pef)
 
 # pef-format
 Defines the portable embosser format
