@@ -21,6 +21,6 @@ task buildSite(type: Copy) {
 	into 'build/site'
 }
 
-task wrapper(type: Wrapper) {
-	gradleVersion = '2.8'
+wrapper {
+	distributionType = Wrapper.DistributionType.ALL
 }
