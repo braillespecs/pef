@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/braillespecs/pef.svg)](https://travis-ci.org/braillespecs/pef)
+[![Build Status](https://travis-ci.com/braillespecs/pef.svg?branch=master)](https://travis-ci.com/braillespecs/pef)
 
 # Portable Embosser Format
 The Portable Embosser Format (PEF) is a data format for representing braille books, accurately and unambiguously; regardless of language, location, embosser settings, braille code and computer environment. It can be used for braille embossing and archiving anywhere in the world, no matter where nor how it was produced.
